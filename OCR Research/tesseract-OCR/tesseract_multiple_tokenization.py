@@ -37,7 +37,6 @@ def process_image(image_path, ground_truth):
     print("\nToken Accuracy: {:.3f}%".format(accuracy))
 
 
-# Example usage for multiple images
 ground_truth = ("Nutrition Facts Serving Size 1 Tbsp (15 mL) Servings Per Container About 64 Amount Per Serving "
                 "Calories 0 Calories from Fat 0 % Daily Value* Total Fat 0g 0% Saturated Fat 0g 0% Trans Fat 0g "
                 "Cholesterol 0mg 0% Sodium 0mg 0% Potassium 15mg 0% Total Carbohydrate 0g 0% Dietary Fiber 0g 0% "
