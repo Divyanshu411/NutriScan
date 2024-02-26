@@ -79,6 +79,8 @@ def extract_value(nutrient, tokens, index):
                 return value
             elif unit.lower() == 'kcal' and nutrient == 'energy_kcal':
                 return value
+            elif unit.lower() == 'kj' and nutrient == 'energy_kcal':
+                return round(value / 4.184, 2)
     else:
         for i in range(index + 1, len(tokens)):
             match = re.match(r'(\d+(\.\d+)?)(g|mg|ug)', tokens[i], re.IGNORECASE)
@@ -141,7 +143,7 @@ def extract_nutritional_info():
         'biotin': ['biotin'],
     }
 
-    extracted_values = {nutrient: 0 for nutrient in nutrient_keywords}
+    extracted_values = {nutrient: {'value': 0, 'confidence': 0} for nutrient in nutrient_keywords}
 
     lines = text.split('\n')
     for line in lines:
@@ -154,12 +156,18 @@ def extract_nutritional_info():
                         index = tokens.index(keyword)
                         if index + 1 < len(tokens):
                             value = extract_value(nutrient, tokens, index)
-                            extracted_values[nutrient] = value
+                            for i, item in enumerate(response["Blocks"]):
+                                if item['BlockType'] == 'LINE' and item['Text'].lower() == tokens[index + 1]:
+                                    confidence = item.get('Confidence', 0)
+                                    extracted_values[nutrient] = {'value': value, 'confidence': confidence}
 
     return extracted_values
 
 
 result = extract_nutritional_info()
+
+for nutrient, data in result.items():
+    print(f"{nutrient}: {data['value']}, Confidence: {data['confidence']}")
 
 # for nutrient, value in result.items():
 #     if value:
@@ -170,5 +178,6 @@ result = extract_nutritional_info()
 #         correct_value = input("Enter the correct value: ")
 #         result[nutrient] = correct_value
 
-df = pd.DataFrame(result.items(), columns=['Nutrient', 'Value'])
-df.to_csv('nutritional_info.csv', index=False)
+
+df = pd.DataFrame(result).T
+df.to_csv('nutritional_info.csv')
