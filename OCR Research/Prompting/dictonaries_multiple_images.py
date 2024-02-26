@@ -1,9 +1,7 @@
 import re
 import boto3
 import pandas as pd
-from PIL import Image
 import Levenshtein
-import pandas
 from PIL import Image
 import os
 
@@ -30,7 +28,7 @@ for file in files:
                 if item['BlockType'] == 'LINE':
                     text = text + " " + item['Text']
                     confidence = item.get('Confidence', 0)
-                    # print(f"Text: {item['Text']}, Confidence: {confidence}")
+                    print(f"Text: {item['Text']}, Confidence: {confidence}")
 
             txt_file = os.path.splitext(file)[0] + '.txt'
             with open(os.path.join(ground_truth_folder_path, txt_file), 'r') as f:
@@ -87,6 +85,10 @@ for file in files:
                             return value
                         elif unit.lower() == 'kcal' and nutrient == 'energy_kcal':
                             return value
+                        elif unit.lower() == 'kj' and nutrient == 'energy_kcal':
+                            return round(value / 4.184, 2)
+                        elif unit.lower() == 'kcal' and nutrient == 'energy_kj':
+                            return round(value * 4.184, 2)
                 else:
                     for i in range(index + 1, len(tokens)):
                         match = re.match(r'(\d+(\.\d+)?)(g|mg|ug)', tokens[i], re.IGNORECASE)
@@ -149,7 +151,7 @@ for file in files:
                     'biotin': ['biotin'],
                 }
 
-                extracted_values = {nutrient: 0 for nutrient in nutrient_keywords}
+                extracted_values = {nutrient: {'value': 0, 'confidence': 0} for nutrient in nutrient_keywords}
 
                 lines = text.split('\n')
                 for line in lines:
@@ -162,18 +164,21 @@ for file in files:
                                     index = tokens.index(keyword)
                                     if index + 1 < len(tokens):
                                         value = extract_value(nutrient, tokens, index)
-                                        extracted_values[nutrient] = value
+                                        for i, item in enumerate(response["Blocks"]):
+                                            if item['BlockType'] == 'LINE' and item['Text'].lower() == tokens[
+                                                index + 1]:
+                                                confidence = item.get('Confidence', 0)
+                                                extracted_values[nutrient] = {'value': value, 'confidence': confidence}
 
                 return extracted_values
 
 
             result = extract_nutritional_info()
 
-            # for nutrient, values in result.items():
-            #     print(f"Nutrient: {nutrient}, Value: {values}, Confidence: {confidence}")
-
-            df = pd.DataFrame(result.items(), columns=['Nutrient', 'Value'])
-            df.to_csv(f'D:/Documents/College/Year 3/OCR Research/OCR Research/Prompting/Nutrition_Info/Nutritional_info_{file}.csv', index=False)
+            df = pd.DataFrame(result).T
+            df.index.name = 'Nutrients'
+            df.to_csv(
+                f'D:/Documents/College/Year 3/OCR Research/OCR Research/Prompting/Nutrition_Info/Nutritional_info_{file}.csv')
 
 # for nutrient, value in result.items():
 #     if value:
