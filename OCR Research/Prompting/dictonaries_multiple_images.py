@@ -50,18 +50,32 @@ def calculate_accuracy_and_errors(str1, str2):
 
 def extract_value(nutrient, tokens, index):
     if nutrient == 'energy_kj' or nutrient == 'energy_kcal':
-        match = re.match(r'(\d+(\.\d+)?)(kj|kcal)', tokens[index + 1], re.IGNORECASE)
+        match = re.match(r'(\d+(\.\d+)?)(kj|kcal)/(\d+(\.\d+)?)(kj|kcal)', tokens[index + 1], re.IGNORECASE)
         if match:
-            value, _, unit = match.groups()
-            value = float(value)
-            if unit.lower() == 'kj' and nutrient == 'energy_kj':
-                return value
-            elif unit.lower() == 'kcal' and nutrient == 'energy_kcal':
-                return value
-            elif unit.lower() == 'kj' and nutrient == 'energy_kcal':
-                return round(value / 4.184, 2)
-            elif unit.lower() == 'kcal' and nutrient == 'energy_kj':
-                return round(value * 4.184, 2)
+            value1, _, unit1, value2, _, unit2 = match.groups()
+            value1 = float(value1)
+            value2 = float(value2)
+            if unit1.lower() == 'kj' and nutrient == 'energy_kj':
+                return value1
+            elif unit2.lower() == 'kcal' and nutrient == 'energy_kcal':
+                return value2
+            elif unit1.lower() == 'kj' and nutrient == 'energy_kcal':
+                return round(value2 / 4.184, 2)
+            elif unit2.lower() == 'kcal' and nutrient == 'energy_kj':
+                return round(value1 * 4.184, 2)
+        else:
+            match = re.match(r'(\d+(\.\d+)?)(kj|kcal)', tokens[index + 1], re.IGNORECASE)
+            if match:
+                value, _, unit = match.groups()
+                value = float(value)
+                if unit.lower() == 'kj' and nutrient == 'energy_kj':
+                    return value
+                elif unit.lower() == 'kcal' and nutrient == 'energy_kcal':
+                    return value
+                elif unit.lower() == 'kj' and nutrient == 'energy_kcal':
+                    return round(value / 4.184, 2)
+                elif unit.lower() == 'kcal' and nutrient == 'energy_kj':
+                    return round(value * 4.184, 2)
     else:
         for i in range(index + 1, len(tokens)):
             match = re.match(r'(\d+(\.\d+)?)(g|mg|ug)', tokens[i], re.IGNORECASE)
@@ -83,9 +97,9 @@ def extract_nutritional_info(text, response):
         'calories': ['calories'],
         'protein': ['protein'],
         'carbohydrates': ['carbohydrate', 'carb', 'carbohydrates'],
-        'sugar': ['sugars'],
+        'sugar': ['sugars', 'sugar', 'sugar)', '(of which sugars)'],
         'fat': ['fat', 'total fat'],
-        'saturated_fat': ['saturates', 'saturated'],
+        'saturated_fat': ['saturates', 'saturated', 'saturates)', '(of which saturates)'],
         'monounsaturated_fat': ['monounsaturates'],
         'polyunsaturated_fat': ['polyunsaturates'],
         'cholesterol': ['cholesterol'],
@@ -107,7 +121,7 @@ def extract_nutritional_info(text, response):
         'vitamin_E': ['vitamin e', 'e'],
         'vitamin_K': ['vitamin k', 'k'],
         'vitamin_B6': ['vitamin b6', 'b6'],
-        'vitamin_B12': ['vitamin b12', 'b12'],
+        'vitamin_B12': ['vitamin b12', 'b12', '(b12)'],
         'iron': ['iron'],
         'retinol': ['retinol'],
         'carotene': ['carotene'],
@@ -138,7 +152,7 @@ def extract_nutritional_info(text, response):
                         if index + 1 < len(tokens):
                             value = extract_value(nutrient, tokens, index)
                             for i, item in enumerate(response["Blocks"]):
-                                if item['BlockType'] == 'LINE' and item['Text'].lower() == tokens[index + 1]:
+                                if item['BlockType'] == 'LINE' and (item['Text'].lower() == tokens[index + 1] or tokens[index + 1] in item['Text'].lower().split()):
                                     confidence = item.get('Confidence', 0)
                                     extracted_values[nutrient] = {'value': value, 'confidence': confidence}
 
@@ -164,6 +178,7 @@ def process_image(image_folder_path, ground_truth_folder_path):
                 confidence = item.get('Confidence', 0)
                 # print(f"Text: {item['Text']}, Confidence: {confidence}")
 
+
         txt_file = os.path.splitext(file)[0] + '.txt'
         with open(os.path.join(ground_truth_folder_path, txt_file), 'r') as f:
             lines = f.readlines()
@@ -173,6 +188,8 @@ def process_image(image_folder_path, ground_truth_folder_path):
 
         accuracy, errors = calculate_accuracy_and_errors(ocr_output, ground_truth)
 
+        print(file)
+        print(text)
         print(f"Levenshtein Accuracy: {accuracy:.2f}%")
         print(f"Errors: {errors}")
         print()
