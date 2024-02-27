@@ -5,7 +5,7 @@ from PIL import Image
 import Levenshtein
 import pandas
 
-path = "D:/Documents/College/Year 3/OCR Research/OCR Research/data/Image8/normal.jpg"
+path = "D:/Documents/College/Year 3/OCR Research/OCR Research/data/Drive_images/21046_Centra Light Irish Milk_Nutritional Info.jpg"
 
 client = client = boto3.client('textract', region_name='us-east-1', aws_access_key_id='AKIATCKATOWRRSB6E5P7',
                                aws_secret_access_key='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')
@@ -23,8 +23,9 @@ for i, item in enumerate(response["Blocks"]):
     if item['BlockType'] == 'LINE':
         text = text + " " + item['Text']
         confidence = item.get('Confidence', 0)
-        print(f"Text: {item['Text']}, Confidence: {confidence}")
+        # print(f"Text: {item['Text']}, Confidence: {confidence}")
 
+print(text)
 ground_truth = ("NUTRITION INFORMATION /100g %RI* /30g %RI* Energy 1517kJ 455kJ 5% 359kcal 108kcal Fat 2.6g 0.8g 1% of "
                 "which saturates 0.4g 0.1g 1% Carbohydrate 65g 20g 8% of which sugars 14g 4.2g 5% Fibre 14g 4.2g "
                 "Protein 12g 3.6g 7% Salt 0.68g 0.2g 3% Vitamins: Vitamin D 8.4ug 168% 2.5ug 50% Thiamin (B1) 0.91mg "
@@ -71,16 +72,32 @@ print(f"Errors: {errors}")
 
 def extract_value(nutrient, tokens, index):
     if nutrient == 'energy_kj' or nutrient == 'energy_kcal':
-        match = re.match(r'(\d+(\.\d+)?)(kj|kcal)', tokens[index + 1], re.IGNORECASE)
+        match = re.match(r'(\d+(\.\d+)?)(kj|kcal)/(\d+(\.\d+)?)(kj|kcal)', tokens[index + 1], re.IGNORECASE)
         if match:
-            value, _, unit = match.groups()
-            value = float(value)
-            if unit.lower() == 'kj' and nutrient == 'energy_kj':
-                return value
-            elif unit.lower() == 'kcal' and nutrient == 'energy_kcal':
-                return value
-            elif unit.lower() == 'kj' and nutrient == 'energy_kcal':
-                return round(value / 4.184, 2)
+            value1, _, unit1, value2, _, unit2 = match.groups()
+            value1 = float(value1)
+            value2 = float(value2)
+            if unit1.lower() == 'kj' and nutrient == 'energy_kj':
+                return value1
+            elif unit2.lower() == 'kcal' and nutrient == 'energy_kcal':
+                return value2
+            elif unit1.lower() == 'kj' and nutrient == 'energy_kcal':
+                return round(value2 / 4.184, 2)
+            elif unit2.lower() == 'kcal' and nutrient == 'energy_kj':
+                return round(value1 * 4.184, 2)
+        else:
+            match = re.match(r'(\d+(\.\d+)?)(kj|kcal)', tokens[index + 1], re.IGNORECASE)
+            if match:
+                value, _, unit = match.groups()
+                value = float(value)
+                if unit.lower() == 'kj' and nutrient == 'energy_kj':
+                    return value
+                elif unit.lower() == 'kcal' and nutrient == 'energy_kcal':
+                    return value
+                elif unit.lower() == 'kj' and nutrient == 'energy_kcal':
+                    return round(value / 4.184, 2)
+                elif unit.lower() == 'kcal' and nutrient == 'energy_kj':
+                    return round(value * 4.184, 2)
     else:
         for i in range(index + 1, len(tokens)):
             match = re.match(r'(\d+(\.\d+)?)(g|mg|ug)', tokens[i], re.IGNORECASE)
@@ -97,8 +114,8 @@ def extract_value(nutrient, tokens, index):
 
 def extract_nutritional_info():
     nutrient_keywords = {
-        'energy_kj': ['energy'],
-        'energy_kcal': ['energy'],
+        'energy_kj': ['energy', 'kj'],
+        'energy_kcal': ['energy', 'kcal'],
         'calories': ['calories'],
         'protein': ['protein'],
         'carbohydrates': ['carbohydrate', 'carb', 'carbohydrates'],
@@ -157,7 +174,7 @@ def extract_nutritional_info():
                         if index + 1 < len(tokens):
                             value = extract_value(nutrient, tokens, index)
                             for i, item in enumerate(response["Blocks"]):
-                                if item['BlockType'] == 'LINE' and item['Text'].lower() == tokens[index + 1]:
+                                if item['BlockType'] == 'LINE' and (item['Text'].lower() == tokens[index + 1] or tokens[index + 1] in item['Text'].lower().split()):
                                     confidence = item.get('Confidence', 0)
                                     extracted_values[nutrient] = {'value': value, 'confidence': confidence}
 
@@ -166,8 +183,8 @@ def extract_nutritional_info():
 
 result = extract_nutritional_info()
 
-for nutrient, data in result.items():
-    print(f"{nutrient}: {data['value']}, Confidence: {data['confidence']}")
+# for nutrient, data in result.items():
+#     print(f"{nutrient}: {data['value']}, Confidence: {data['confidence']}")
 
 # for nutrient, value in result.items():
 #     if value:

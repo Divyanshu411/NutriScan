@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0cac1d3-eef6-4562-88c4-4db3d74cf9f9" name="Changes" comment="Added confidence score for each value in nutrients dictionary">
+    <list default="true" id="d0cac1d3-eef6-4562-88c4-4db3d74cf9f9" name="Changes" comment="Refactored the code for dictionaries_multiple_images.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21040_Dairygold Original - 63_ Fat Blended Spread_back.jpg.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21040_Dairygold Original - 63_ Fat Blended Spread_back.jpg.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21046_Centra Light Irish Milk_Nutritional Info.jpg.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21046_Centra Light Irish Milk_Nutritional Info.jpg.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21080_Hellmann_s Light Mayonnaise_Nutritional Information_600g_Glass _ Plastic.jpg.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21080_Hellmann_s Light Mayonnaise_Nutritional Information_600g_Glass _ Plastic.jpg.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21124_Avonmore Low Fat Super Milk_Back.jpg.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21124_Avonmore Low Fat Super Milk_Back.jpg.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21260_Weetabix Original_Nutritional Info.jpg.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21260_Weetabix Original_Nutritional Info.jpg.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21567_Glenisk Organic Kids Bio No Added Sugar Vanilla Yogurt_Back (1).jpg.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21567_Glenisk Organic Kids Bio No Added Sugar Vanilla Yogurt_Back (1).jpg.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21725_Lucozade Sport Orange_Nutritional Information_750ml_Plastic.jpg.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21725_Lucozade Sport Orange_Nutritional Information_750ml_Plastic.jpg.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_22548_Tesco Bran Flakes_750g_Nutritional Information_Paper _ Board.jpg.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_22548_Tesco Bran Flakes_750g_Nutritional Information_Paper _ Board.jpg.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_Kellogg_s Bran Flakes_Nutritional Info.jpg.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_Kellogg_s Bran Flakes_Nutritional Info.jpg.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/dictonaries_levenshtein.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/dictonaries_levenshtein.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/dictonaries_multiple_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/dictonaries_multiple_images.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/nutritional_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/nutritional_info.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +185,9 @@
       <workItem from="1708705204347" duration="1717000" />
       <workItem from="1708941963936" duration="6136000" />
       <workItem from="1708949827252" duration="591000" />
+      <workItem from="1708973769771" duration="2109000" />
+      <workItem from="1709037514805" duration="8377000" />
+      <workItem from="1709046919585" duration="1703000" />
     </task>
     <task id="LOCAL-00001" summary="Added dictionaries for variables, extracted data from food labels, and stored in tables">
       <option name="closed" value="true" />
@@ -191,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708949632529</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Refactored the code for dictionaries_multiple_images.py">
+      <option name="closed" value="true" />
+      <created>1708973866886</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1708973866886</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +222,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added dictionaries for variables, extracted data from food labels, and stored in tables" />
     <MESSAGE value="Added confidence score for each value in nutrients dictionary" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added confidence score for each value in nutrients dictionary" />
+    <MESSAGE value="Refactored the code for dictionaries_multiple_images.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored the code for dictionaries_multiple_images.py" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="value" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/OCR_Research$azure_character.coverage" NAME="azure_character Coverage Results" MODIFIED="1707840164708" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Azure" />
@@ -245,7 +275,7 @@
     <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_test7_energy2.coverage" NAME="dictonaries_test7_energy2 Coverage Results" MODIFIED="1708428639233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
     <SUITE FILE_PATH="coverage/OCR_Research$google_ocr_test.coverage" NAME="google_ocr_test Coverage Results" MODIFIED="1707409746368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Google Vision" />
     <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_test3.coverage" NAME="dictonaries_test3 Coverage Results" MODIFIED="1708365090071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
-    <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_levenshtein.coverage" NAME="dictonaries_levenshtein Coverage Results" MODIFIED="1708949114949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
+    <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_levenshtein.coverage" NAME="dictonaries_levenshtein Coverage Results" MODIFIED="1709048385628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
     <SUITE FILE_PATH="coverage/OCR_Research$aws_accuracy_test_3.coverage" NAME="aws_accuracy_test-3 Coverage Results" MODIFIED="1708002720119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/aws_textract/Case 3" />
     <SUITE FILE_PATH="coverage/OCR_Research$tesseract_levenshtein_comparison.coverage" NAME="tesseract_levenshtein_comparison Coverage Results" MODIFIED="1707999931107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tesseract-OCR" />
     <SUITE FILE_PATH="coverage/OCR_Research$levenshtein_comparison.coverage" NAME="levenshtein_comparison Coverage Results" MODIFIED="1707823084152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Comparison" />
@@ -258,6 +288,6 @@
     <SUITE FILE_PATH="coverage/OCR_Research$tesseract_accuracy_test_2.coverage" NAME="tesseract_accuracy_test_2 Coverage Results" MODIFIED="1707849060814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tesseract-OCR/Case 2" />
     <SUITE FILE_PATH="coverage/OCR_Research$combine_comparison.coverage" NAME="combine_comparison Coverage Results" MODIFIED="1707741515786" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Comparison" />
     <SUITE FILE_PATH="coverage/OCR_Research$azure_accuracy_test.coverage" NAME="azure_accuracy_test Coverage Results" MODIFIED="1707846836202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Azure" />
-    <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_multiple_images.coverage" NAME="dictonaries_multiple_images Coverage Results" MODIFIED="1708950214935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
+    <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_multiple_images.coverage" NAME="dictonaries_multiple_images Coverage Results" MODIFIED="1709048424758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
   </component>
 </project>
