@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0cac1d3-eef6-4562-88c4-4db3d74cf9f9" name="Changes" comment="Refactored the code for dictionaries_multiple_images.py">
+    <list default="true" id="d0cac1d3-eef6-4562-88c4-4db3d74cf9f9" name="Changes" comment="Code updated to accommodate various formats of energy representation on food labels">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21040_Dairygold Original - 63_ Fat Blended Spread_back.jpg.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21040_Dairygold Original - 63_ Fat Blended Spread_back.jpg.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21046_Centra Light Irish Milk_Nutritional Info.jpg.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/Nutrition_Info/Nutritional_info_21046_Centra Light Irish Milk_Nutritional Info.jpg.csv" afterDir="false" />
@@ -18,6 +18,7 @@
       <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/dictonaries_levenshtein.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/dictonaries_levenshtein.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/dictonaries_multiple_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/dictonaries_multiple_images.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/Prompting/nutritional_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/Prompting/nutritional_info.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/data/Ground_truth_text/22548_Tesco Bran Flakes_750g_Nutritional Information_Paper _ Board.txt" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/data/Ground_truth_text/22548_Tesco Bran Flakes_750g_Nutritional Information_Paper _ Board.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,78 +61,78 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.alphabet_frequency.executor": "Run",
-    "Python.aws_accuracy_test-2.executor": "Run",
-    "Python.aws_accuracy_test-3.executor": "Run",
-    "Python.aws_accuracy_test.executor": "Run",
-    "Python.aws_line_token_test.executor": "Run",
-    "Python.aws_test.executor": "Run",
-    "Python.aws_test2.executor": "Run",
-    "Python.azure_accuracy_test-2.executor": "Run",
-    "Python.azure_accuracy_test-3.executor": "Run",
-    "Python.azure_accuracy_test.executor": "Run",
-    "Python.azure_character.executor": "Run",
-    "Python.azure_levenshtein.executor": "Run",
-    "Python.azure_test.executor": "Run",
-    "Python.azure_test2.executor": "Run",
-    "Python.azure_tokenization.executor": "Run",
-    "Python.combine comparison.executor": "Run",
-    "Python.combine_comparison.executor": "Run",
-    "Python.dictonaries_levenshtein.executor": "Run",
-    "Python.dictonaries_multiple_images.executor": "Run",
-    "Python.dictonaries_multiple_images2.executor": "Run",
-    "Python.dictonaries_test.executor": "Run",
-    "Python.dictonaries_test10_levenshtein.executor": "Run",
-    "Python.dictonaries_test11_multiple_images.executor": "Run",
-    "Python.dictonaries_test2.executor": "Run",
-    "Python.dictonaries_test3.executor": "Run",
-    "Python.dictonaries_test4.executor": "Run",
-    "Python.dictonaries_test5_single_line.executor": "Run",
-    "Python.dictonaries_test6_energy.executor": "Run",
-    "Python.dictonaries_test7_df.executor": "Run",
-    "Python.dictonaries_test7_energy2.executor": "Run",
-    "Python.dictonaries_test8_line_by_line.executor": "Run",
-    "Python.dictonaries_test9_line_by_line.executor": "Run",
-    "Python.google tokenization.executor": "Run",
-    "Python.google_accuracy_test-2.executor": "Run",
-    "Python.google_accuracy_test-3.executor": "Run",
-    "Python.google_accuracy_test.executor": "Run",
-    "Python.google_char_frequency.executor": "Run",
-    "Python.google_levenshtein_comparison.executor": "Run",
-    "Python.google_ocr_test.executor": "Run",
-    "Python.levenshtein_comparison.executor": "Run",
-    "Python.opencv_text.executor": "Run",
-    "Python.read_folder_images.executor": "Run",
-    "Python.table_extraction.executor": "Run",
-    "Python.table_test.executor": "Run",
-    "Python.tesseract_accuracy_test-3.executor": "Run",
-    "Python.tesseract_accuracy_test.executor": "Run",
-    "Python.tesseract_accuracy_test_2.executor": "Run",
-    "Python.tesseract_bleu_score.executor": "Run",
-    "Python.tesseract_char_frequency.executor": "Run",
-    "Python.tesseract_comparison.executor": "Debug",
-    "Python.tesseract_levenshtein_comparison.executor": "Run",
-    "Python.tesseract_line_tokenization.executor": "Run",
-    "Python.tesseract_tokenization.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.test2.executor": "Run",
-    "Python.tokenization-2.executor": "Run",
-    "Python.tokenization.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Documents/College/Year 3/OCR Research/OCR Research/Prompting",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.alphabet_frequency.executor&quot;: &quot;Run&quot;,
+    &quot;Python.aws_accuracy_test-2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.aws_accuracy_test-3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.aws_accuracy_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.aws_line_token_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.aws_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.aws_test2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_accuracy_test-2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_accuracy_test-3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_accuracy_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_character.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_levenshtein.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_test2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_tokenization.executor&quot;: &quot;Run&quot;,
+    &quot;Python.combine comparison.executor&quot;: &quot;Run&quot;,
+    &quot;Python.combine_comparison.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_levenshtein.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_multiple_images.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_multiple_images2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test10_levenshtein.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test11_multiple_images.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test5_single_line.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test6_energy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test7_df.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test7_energy2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test8_line_by_line.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test9_line_by_line.executor&quot;: &quot;Run&quot;,
+    &quot;Python.google tokenization.executor&quot;: &quot;Run&quot;,
+    &quot;Python.google_accuracy_test-2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.google_accuracy_test-3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.google_accuracy_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.google_char_frequency.executor&quot;: &quot;Run&quot;,
+    &quot;Python.google_levenshtein_comparison.executor&quot;: &quot;Run&quot;,
+    &quot;Python.google_ocr_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.levenshtein_comparison.executor&quot;: &quot;Run&quot;,
+    &quot;Python.opencv_text.executor&quot;: &quot;Run&quot;,
+    &quot;Python.read_folder_images.executor&quot;: &quot;Run&quot;,
+    &quot;Python.table_extraction.executor&quot;: &quot;Run&quot;,
+    &quot;Python.table_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_accuracy_test-3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_accuracy_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_accuracy_test_2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_bleu_score.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_char_frequency.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_comparison.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.tesseract_levenshtein_comparison.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_line_tokenization.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_tokenization.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tokenization-2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tokenization.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Documents/College/Year 3/OCR Research/OCR Research/Prompting&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\College\Year 3\OCR Research\OCR Research\Prompting" />
@@ -187,7 +188,8 @@
       <workItem from="1708949827252" duration="591000" />
       <workItem from="1708973769771" duration="2109000" />
       <workItem from="1709037514805" duration="8377000" />
-      <workItem from="1709046919585" duration="1703000" />
+      <workItem from="1709046919585" duration="1775000" />
+      <workItem from="1709119459915" duration="4999000" />
     </task>
     <task id="LOCAL-00001" summary="Added dictionaries for variables, extracted data from food labels, and stored in tables">
       <option name="closed" value="true" />
@@ -213,7 +215,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708973866886</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Code updated to accommodate various formats of energy representation on food labels">
+      <option name="closed" value="true" />
+      <created>1709048686212</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709048686212</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +233,8 @@
     <MESSAGE value="Added dictionaries for variables, extracted data from food labels, and stored in tables" />
     <MESSAGE value="Added confidence score for each value in nutrients dictionary" />
     <MESSAGE value="Refactored the code for dictionaries_multiple_images.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored the code for dictionaries_multiple_images.py" />
+    <MESSAGE value="Code updated to accommodate various formats of energy representation on food labels" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code updated to accommodate various formats of energy representation on food labels" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -275,7 +286,7 @@
     <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_test7_energy2.coverage" NAME="dictonaries_test7_energy2 Coverage Results" MODIFIED="1708428639233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
     <SUITE FILE_PATH="coverage/OCR_Research$google_ocr_test.coverage" NAME="google_ocr_test Coverage Results" MODIFIED="1707409746368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Google Vision" />
     <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_test3.coverage" NAME="dictonaries_test3 Coverage Results" MODIFIED="1708365090071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
-    <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_levenshtein.coverage" NAME="dictonaries_levenshtein Coverage Results" MODIFIED="1709048385628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
+    <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_levenshtein.coverage" NAME="dictonaries_levenshtein Coverage Results" MODIFIED="1709122270796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
     <SUITE FILE_PATH="coverage/OCR_Research$aws_accuracy_test_3.coverage" NAME="aws_accuracy_test-3 Coverage Results" MODIFIED="1708002720119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/aws_textract/Case 3" />
     <SUITE FILE_PATH="coverage/OCR_Research$tesseract_levenshtein_comparison.coverage" NAME="tesseract_levenshtein_comparison Coverage Results" MODIFIED="1707999931107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tesseract-OCR" />
     <SUITE FILE_PATH="coverage/OCR_Research$levenshtein_comparison.coverage" NAME="levenshtein_comparison Coverage Results" MODIFIED="1707823084152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Comparison" />
@@ -288,6 +299,6 @@
     <SUITE FILE_PATH="coverage/OCR_Research$tesseract_accuracy_test_2.coverage" NAME="tesseract_accuracy_test_2 Coverage Results" MODIFIED="1707849060814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tesseract-OCR/Case 2" />
     <SUITE FILE_PATH="coverage/OCR_Research$combine_comparison.coverage" NAME="combine_comparison Coverage Results" MODIFIED="1707741515786" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Comparison" />
     <SUITE FILE_PATH="coverage/OCR_Research$azure_accuracy_test.coverage" NAME="azure_accuracy_test Coverage Results" MODIFIED="1707846836202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Azure" />
-    <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_multiple_images.coverage" NAME="dictonaries_multiple_images Coverage Results" MODIFIED="1709048424758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
+    <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_multiple_images.coverage" NAME="dictonaries_multiple_images Coverage Results" MODIFIED="1709124254804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
   </component>
 </project>
