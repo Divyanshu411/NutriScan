@@ -5,7 +5,7 @@ from PIL import Image
 import Levenshtein
 import pandas
 
-path = "D:/Documents/College/Year 3/OCR Research/OCR Research/data/Drive_images/21046_Centra Light Irish Milk_Nutritional Info.jpg"
+path = "D:/Documents/College/Year 3/OCR Research/OCR Research/data/Drive_images/22548_Tesco Bran Flakes_750g_Nutritional Information_Paper _ Board.jpg"
 
 client = client = boto3.client('textract', region_name='us-east-1', aws_access_key_id='AKIATCKATOWRRSB6E5P7',
                                aws_secret_access_key='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')
@@ -119,9 +119,9 @@ def extract_nutritional_info():
         'calories': ['calories'],
         'protein': ['protein'],
         'carbohydrates': ['carbohydrate', 'carb', 'carbohydrates'],
-        'sugar': ['sugars'],
+        'sugar': ['sugars', 'sugar', 'sugar)', '(of which sugars)'],
         'fat': ['fat', 'total fat'],
-        'saturated_fat': ['saturates', 'saturated'],
+        'saturated_fat': ['saturates', 'saturated', 'saturates)', '(of which saturates)'],
         'monounsaturated_fat': ['monounsaturates'],
         'polyunsaturated_fat': ['polyunsaturates'],
         'cholesterol': ['cholesterol'],
@@ -131,7 +131,7 @@ def extract_nutritional_info():
         'calcium': ['calcium'],
         'magnesium': ['magnesium'],
         'phosphorus': ['phosphorus'],
-        'fiber': ['fibre'],
+        'fibre': ['fibre', 'fiber'],
         'copper': ['copper'],
         'zinc': ['zinc'],
         'selenium': ['selenium'],
@@ -142,21 +142,21 @@ def extract_nutritional_info():
         'vitamin_D': ['vitamin d', 'd'],
         'vitamin_E': ['vitamin e', 'e'],
         'vitamin_K': ['vitamin k', 'k'],
-        'vitamin_B6': ['vitamin b6', 'b6'],
-        'vitamin_B12': ['vitamin b12', 'b12'],
+        'vitamin_B6': ['vitamin b6', 'b6', '(b6)'],
+        'vitamin_B12': ['vitamin b12', 'b12', '(b12)'],
         'iron': ['iron'],
         'retinol': ['retinol'],
         'carotene': ['carotene'],
         'thiamin': ['thiamin'],
-        'riboflavin': ['riboglavin'],
+        'riboflavin': ['riboflavin'],
         'tryptophan': ['tryptophan'],
-        'niacin': ['niacin'],
+        'niacin': ['niacin', 'b3', '(b3)'],
         'total_folate': ['total folate', 'folate'],
         'Natural_Folate': ['natural folate'],
         'niacin_equivalent': ['niacin equivalent'],
-        'folic_acid': ['folic acid', 'acid', 'b9'],
+        'folic_acid': ['folic acid', 'b9', 'folic', '(b9)'],
         'dietary_folate_equivalents': ['dietary folate equivalents'],
-        'pantothenate': ['pantothenate'],
+        'pantothenate': ['pantothenate', 'pantothenic acid', 'pantothenic'],
         'biotin': ['biotin'],
     }
 
@@ -167,6 +167,7 @@ def extract_nutritional_info():
         line = line.lower()
         if any(keyword in line for nutrient, keywords in nutrient_keywords.items() for keyword in keywords):
             tokens = line.split()
+            print(tokens)
             for nutrient, keywords in nutrient_keywords.items():
                 for keyword in keywords:
                     if keyword in tokens:

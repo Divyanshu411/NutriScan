@@ -16,7 +16,7 @@ potassium,0.0,0.0
 calcium,0.0,0.0
 magnesium,0.0,0.0
 phosphorus,0.0,0.0
-fiber,16.8,99.98291015625
+fibre,16.8,99.98291015625
 copper,0.0,0.0
 zinc,0.0,0.0
 selenium,0.0,0.0
@@ -33,13 +33,13 @@ iron,0.014,99.79251861572266
 retinol,0.0,0.0
 carotene,0.0,0.0
 thiamin,0.0011,85.4136734008789
-riboflavin,0.0,0.0
+riboflavin,0.0014,95.47643280029297
 tryptophan,0.0,0.0
 niacin,0.0,0.0
 total_folate,0.0,0.0
 Natural_Folate,0.0,0.0
 niacin_equivalent,0.0,0.0
-folic_acid,0.0,0.0
+folic_acid,0.0004,99.18379211425781
 dietary_folate_equivalents,0.0,0.0
-pantothenate,0.0,0.0
+pantothenate,0.006,99.18379211425781
 biotin,0.0,0.0
