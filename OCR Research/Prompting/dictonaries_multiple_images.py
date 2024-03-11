@@ -121,21 +121,21 @@ def extract_nutritional_info(text, response):
         'vitamin_E': ['vitamin e', 'e'],
         'vitamin_K': ['vitamin k', 'k'],
         'vitamin_B6': ['vitamin b6', 'b6', '(b6)'],
-        'vitamin_B12': ['vitamin b12', 'b12', '(b12)'],
+        'vitamin_B12': ['vitamin b12', 'b12', '(b12)', 'cobalamin'],
         'iron': ['iron'],
         'retinol': ['retinol'],
         'carotene': ['carotene'],
-        'thiamin': ['thiamin'],
-        'riboflavin': ['riboflavin'],
+        'thiamin': ['thiamin', 'b1', '(b1)'],
+        'riboflavin': ['riboflavin', 'b2', '(b2)'],
         'tryptophan': ['tryptophan'],
         'niacin': ['niacin', 'b3', '(b3)'],
-        'total_folate': ['total folate', 'folate'],
+        'total_folate': ['total folate', 'folate', 'b9', '(b9)'],
         'Natural_Folate': ['natural folate'],
         'niacin_equivalent': ['niacin equivalent'],
         'folic_acid': ['folic acid', 'b9', 'folic', '(b9)'],
         'dietary_folate_equivalents': ['dietary folate equivalents'],
-        'pantothenate': ['pantothenate', 'pantothenic acid', 'pantothenic'],
-        'biotin': ['biotin'],
+        'pantothenate': ['pantothenate', 'pantothenic acid', 'pantothenic', '(b5)', 'b5'],
+        'biotin': ['biotin', '(b7)', 'b7']
     }
 
     extracted_values = {nutrient: {'value': 0, 'confidence': 0} for nutrient in nutrient_keywords}
