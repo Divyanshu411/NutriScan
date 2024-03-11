@@ -8,7 +8,7 @@ from tkinterdnd2 import DND_FILES, TkinterDnD
 class NutriScanApp(TkinterDnD.Tk):
     def __init__(self, *args, **kwargs):
         TkinterDnD.Tk.__init__(self, *args, **kwargs)
-        self.geometry("1000x900")
+        self.geometry("800x700")
         self.title('NutriScan')
         self.img_file_path = None
 
@@ -27,6 +27,8 @@ class NutriScanApp(TkinterDnD.Tk):
     def show_frame(self, cont):
         frame = self.frames[cont]
         frame.tkraise()
+        if cont == PageTwo:
+            frame.initialize_crop_app()
 
 
 class PageOne(tk.Frame):
@@ -88,6 +90,12 @@ class PageOne(tk.Frame):
 
 
 class PageTwo(tk.Frame):
+    def initialize_crop_app(self):
+        if self.controller.img_file_path:
+            self.crop_app = CropApp(self, self.controller.img_file_path)
+        else:
+            print("Error: No image file path provided.")
+
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.controller = controller
@@ -107,12 +115,6 @@ class PageTwo(tk.Frame):
 
         prev_page_button = tk.Button(self, text='Back', width=20, command=lambda: controller.show_frame(PageOne))
         prev_page_button.grid(row=5, column=0, columnspan=2)
-
-        def initialize_crop_app(self):
-            if self.controller.img_file_path:
-                self.crop_app = CropApp(self, self.controller.img_file_path)
-            else:
-                print("Error: No image file path provided.")
 
 
 if __name__ == "__main__":
