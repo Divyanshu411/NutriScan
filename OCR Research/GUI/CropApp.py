@@ -232,7 +232,7 @@ class CropApp:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    img_file_name = 'D:/Documents/College/Year 3/OCR Research/OCR Research/data/Drive_images/21040_Dairygold Original - 63_ Fat Blended Spread_back.jpg'
+    img_file_name = None
     App = CropApp(root, img_file_name)
 
     root.mainloop()
