@@ -17,7 +17,7 @@ class NutriScanApp(TkinterDnD.Tk):
 
         self.frames = {}
 
-        for F in (PageOne, PageTwo):
+        for F in (PageOne, PageTwo, PageThree):
             frame = F(container, self)
             self.frames[F] = frame
             frame.grid(row=0, column=0, sticky="nsew")
@@ -72,8 +72,8 @@ class PageOne(tk.Frame):
             filename = filename.strip('{}')
             img = Image.open(filename)
             width, height = img.size
-            width_new = int(width / 3)
-            height_new = int(height / 3)
+            width_new = int(width / 2)
+            height_new = int(height / 2)
             img_resized = img.resize((width_new, height_new))
             img = ImageTk.PhotoImage(img_resized)
             l2 = tk.Label(self, image=img)
@@ -83,10 +83,6 @@ class PageOne(tk.Frame):
 
         next_page_button = tk.Button(self, text='Next', width=20, command=lambda: controller.show_frame(PageTwo))
         next_page_button.grid(row=5, column=0, columnspan=2)
-
-        def go_to_next_page(self):
-            self.controller.show_frame(PageTwo)
-            self.controller.frames[PageTwo].initialize_crop_app()
 
 
 class PageTwo(tk.Frame):
@@ -100,7 +96,6 @@ class PageTwo(tk.Frame):
         tk.Frame.__init__(self, parent)
         self.controller = controller
 
-        print(f"Initializing PageTwo with image: {controller.img_file_path}")
 
         my_font = ('Ariel', 18, 'bold')
         page_2_label_1 = tk.Label(self, text='Page 2', width=30, font=my_font)
@@ -114,6 +109,22 @@ class PageTwo(tk.Frame):
             print("Error: No image file path provided.")
 
         prev_page_button = tk.Button(self, text='Back', width=20, command=lambda: controller.show_frame(PageOne))
+        prev_page_button.grid(row=1, column=0, columnspan=2)
+
+        next_page_button = tk.Button(self, text='Next', width=20, command=lambda: controller.show_frame(PageThree))
+        next_page_button.grid(row=2, column=0, columnspan=2)
+
+
+class PageThree(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        my_font = ('Ariel', 18, 'bold')
+        page_2_label_1 = tk.Label(self, text='Page 3', width=30, font=my_font)
+        page_2_label_1.grid(row=0, column=0, columnspan=2)
+
+        prev_page_button = tk.Button(self, text='Back', width=20, command=lambda: controller.show_frame(PageTwo))
         prev_page_button.grid(row=5, column=0, columnspan=2)
 
 
