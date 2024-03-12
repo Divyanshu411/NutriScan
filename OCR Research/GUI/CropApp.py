@@ -105,7 +105,7 @@ class CropApp:
 
         self.canvas = tk.Canvas(
             self.master, width=self.c_width, height=self.c_height)
-        self.canvas.grid(sticky="nsew")
+        self.canvas.pack()
 
         self.img_canvas = ImageTk.PhotoImage(self.im)
         self.img_canvas_img_id = self.canvas.create_image(
@@ -117,7 +117,7 @@ class CropApp:
         self.SW = CornerBox('SW', self.canvas, self.c_height, self.c_width)
 
         self.but_frame = tk.Frame(self.master)
-        self.but_frame.grid(sticky="nsew")
+        self.but_frame.pack()
 
         self.reset_butt = tk.Button(
             self.but_frame, text="Reset", width=20, command=self.restCorners)
@@ -142,6 +142,9 @@ class CropApp:
         for i in [self.NW, self.NE, self.SE, self.SW]:
             self.canvas.tag_bind(i.cb_id, "<Button-1>", i.grab)
             self.canvas.tag_bind(i.cb_id, "<B1-Motion>", i.drag)
+
+    def destroy(self):
+        self.master.destroy()
 
     def printBoxDetails(self):
         print(self.NW.coords, self.NE.coords, self.SE.coords, self.SW.coords)
