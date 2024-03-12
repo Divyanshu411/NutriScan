@@ -12,19 +12,16 @@ class NutriScanApp(TkinterDnD.Tk):
         self.title('NutriScan')
         self.img_file_path = None
 
-        self.grid_rowconfigure(0, weight=1)
-        self.grid_columnconfigure(0, weight=1)
-
         self.canvas = tk.Canvas(self)
-        self.canvas.grid(row=0, column=0, sticky="nsew")
+        self.canvas.pack(side="left", fill="both", expand=True)
 
         scrollbar = tk.Scrollbar(self, orient="vertical", command=self.canvas.yview)
-        scrollbar.grid(row=0, column=1, sticky='ns')
+        scrollbar.pack(side="right", fill="y")
 
         self.canvas.configure(yscrollcommand=scrollbar.set)
         self.canvas.bind('<Configure>', lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all")))
         self.canvas.bind_all("<MouseWheel>",
-                        lambda event: self.canvas.yview_scroll(int(-1 * (event.delta / 120)), "units"))
+                             lambda event: self.canvas.yview_scroll(int(-1 * (event.delta / 120)), "units"))
 
         container = tk.Frame(self.canvas)
 
@@ -33,14 +30,18 @@ class NutriScanApp(TkinterDnD.Tk):
         for F in (PageOne, PageTwo, PageThree):
             frame = F(container, self)
             self.frames[F] = frame
-            frame.grid(row=0, column=0, sticky="nsew")
+            frame.pack(side="top", fill="both", expand=True)
 
         self.show_frame(PageOne)
         self.canvas.create_window((0, 0), window=container, anchor="nw")
 
     def show_frame(self, cont):
+        for frame in self.frames.values():
+            frame.pack_forget()
+
         frame = self.frames[cont]
-        frame.tkraise()
+        frame.pack(side="top", fill="both", expand=True)
+
         if cont == PageTwo:
             frame.initialize_crop_app()
 
@@ -54,11 +55,11 @@ class PageOne(tk.Frame):
 
         my_font1 = ('times', 18, 'bold')
         Heading = tk.Label(self, text='NutriScan', width=30, font=my_font1)
-        Heading.grid(row=0, column=0, columnspan=2)
+        Heading.pack()
 
         my_font2 = ('Ariel', 14, 'bold')
         lable_1 = tk.Label(self, text='Upload the Nutritional label', width=30, font=my_font2)
-        lable_1.grid(row=1, column=0, columnspan=2)
+        lable_1.pack()
 
         entry = tk.Text(self, height=3, width=30)
         entry.configure(state='normal')
@@ -68,14 +69,14 @@ class PageOne(tk.Frame):
         entry.drop_target_register(DND_FILES)
         entry.dnd_bind('<<Drop>>', lambda e: open_image(e.data))
 
-        entry.grid(row=2, column=0, columnspan=2)
+        entry.pack()
 
         my_font3 = ('Ariel', 14, 'bold')
         label_2 = tk.Label(self, text='OR', width=30, font=my_font3)
-        label_2.grid(row=3, column=0, columnspan=2)
+        label_2.pack()
 
         upload_file_button = tk.Button(self, text='Upload File', width=20, command=lambda: upload_file())
-        upload_file_button.grid(row=4, column=0, columnspan=2)
+        upload_file_button.pack()
 
         def upload_file():
             global img
@@ -95,12 +96,12 @@ class PageOne(tk.Frame):
             img_resized = img.resize((width_new, height_new))
             img = ImageTk.PhotoImage(img_resized)
             l2 = tk.Label(self, image=img)
-            l2.grid(row=3, column=0, columnspan=2)
+            l2.pack()
             controller.img_file_path = filename
             controller.show_frame(PageOne)
 
         next_page_button = tk.Button(self, text='Next', width=20, command=lambda: controller.show_frame(PageTwo))
-        next_page_button.grid(row=5, column=0, columnspan=2)
+        next_page_button.pack()
 
 
 class PageTwo(tk.Frame):
@@ -114,7 +115,7 @@ class PageTwo(tk.Frame):
 
         my_font = ('Ariel', 18, 'bold')
         page_2_label_1 = tk.Label(self, text='Page 2', width=30, font=my_font)
-        page_2_label_1.grid(row=0, column=0, columnspan=2)
+        page_2_label_1.pack()
 
         self.crop_app = None
 
@@ -122,10 +123,10 @@ class PageTwo(tk.Frame):
             self.crop_app = CropApp(self, controller.img_file_path)
 
         prev_page_button = tk.Button(self, text='Back', width=20, command=lambda: controller.show_frame(PageOne))
-        prev_page_button.grid(row=1, column=0, columnspan=2)
+        prev_page_button.pack()
 
         next_page_button = tk.Button(self, text='Next', width=20, command=lambda: controller.show_frame(PageThree))
-        next_page_button.grid(row=2, column=0, columnspan=2)
+        next_page_button.pack()
 
 
 class PageThree(tk.Frame):
@@ -135,10 +136,10 @@ class PageThree(tk.Frame):
 
         my_font = ('Ariel', 18, 'bold')
         page_2_label_1 = tk.Label(self, text='Page 3', width=30, font=my_font)
-        page_2_label_1.grid(row=0, column=0, columnspan=2)
+        page_2_label_1.pack()
 
         prev_page_button = tk.Button(self, text='Back', width=20, command=lambda: controller.show_frame(PageTwo))
-        prev_page_button.grid(row=5, column=0, columnspan=2)
+        prev_page_button.pack()
 
 
 if __name__ == "__main__":
