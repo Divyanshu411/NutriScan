@@ -74,7 +74,6 @@ class CornerBox():
 
 class CropApp:
     def __init__(self, master, img):
-        print(f"Image file path: {img}")
         self.master = master
 
         self.screen_width = self.master.winfo_screenwidth()
