@@ -1,8 +1,13 @@
 import tkinter as tk
+from tkinter import ttk
 from tkinter import filedialog
+
+import pandas as pd
 from PIL import Image, ImageTk
 from CropApp import CropApp
 from tkinterdnd2 import DND_FILES, TkinterDnD
+from tkinter.simpledialog import askstring
+from OCR_extraction import process_image
 
 
 class NutriScanApp(TkinterDnD.Tk):
@@ -45,6 +50,9 @@ class NutriScanApp(TkinterDnD.Tk):
         if cont == PageTwo:
             frame.initialize_crop_app()
 
+        if cont == PageThree:
+            frame.initialize_OCR_extraction()
+
         self.update_idletasks()
         self.canvas.configure(scrollregion=self.canvas.bbox("all"))
 
@@ -68,14 +76,13 @@ class PageOne(tk.Frame):
 
         entry.drop_target_register(DND_FILES)
         entry.dnd_bind('<<Drop>>', lambda e: open_image(e.data))
-
         entry.pack()
 
         my_font3 = ('Ariel', 14, 'bold')
         label_2 = tk.Label(self, text='OR', width=30, font=my_font3)
         label_2.pack()
 
-        upload_file_button = tk.Button(self, text='Upload File', width=20, command=lambda: upload_file())
+        upload_file_button = ttk.Button(self, text='Upload File', width=20, command=lambda: upload_file())
         upload_file_button.pack()
 
         def upload_file():
@@ -100,7 +107,7 @@ class PageOne(tk.Frame):
             controller.img_file_path = filename
             controller.show_frame(PageOne)
 
-        next_page_button = tk.Button(self, text='Next', width=20, command=lambda: controller.show_frame(PageTwo))
+        next_page_button = ttk.Button(self, text='Next', width=20, command=lambda: controller.show_frame(PageTwo))
         next_page_button.pack()
 
 
@@ -122,24 +129,71 @@ class PageTwo(tk.Frame):
         if controller.img_file_path:
             self.crop_app = CropApp(self, controller.img_file_path)
 
-        prev_page_button = tk.Button(self, text='Back', width=20, command=lambda: controller.show_frame(PageOne))
+        prev_page_button = ttk.Button(self, text='Back', width=20, command=lambda: controller.show_frame(PageOne))
         prev_page_button.pack()
 
-        next_page_button = tk.Button(self, text='Next', width=20, command=lambda: controller.show_frame(PageThree))
+        next_page_button = ttk.Button(self, text='Next', width=20, command=lambda: controller.show_frame(PageThree))
         next_page_button.pack()
 
 
 class PageThree(tk.Frame):
+    def initialize_OCR_extraction(self):
+        if self.controller.img_file_path:
+            self.process_image_result = process_image(self.controller.img_file_path)
+            self.populate_treeview_from_csv()
+
+    def populate_treeview_from_csv(self):
+        try:
+            df = pd.read_csv('nutritional_info.csv', index_col=0)
+            for index, row in df.iterrows():
+                self.treeview.insert('', 'end', values=(index, row['Value'], row['Confidence']))
+        except FileNotFoundError:
+            print("CSV file not found.")
+
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
+        self.process_image_result = None
         self.controller = controller
 
-        my_font = ('Ariel', 18, 'bold')
+        my_font = ('Arial', 18, 'bold')
         page_2_label_1 = tk.Label(self, text='Page 3', width=30, font=my_font)
         page_2_label_1.pack()
 
-        prev_page_button = tk.Button(self, text='Back', width=20, command=lambda: controller.show_frame(PageTwo))
+        prev_page_button = ttk.Button(self, text='Back', width=20, command=lambda: controller.show_frame(PageTwo))
         prev_page_button.pack()
+
+        frame = ttk.Frame(self)
+        frame.pack(expand=True, fill='both')
+
+        self.treeview = ttk.Treeview(frame, columns=('Column1', 'Column2', 'Column3'), show='headings', height=10)
+        self.treeview.heading('Column1', text='Nutrient')
+        self.treeview.heading('Column2', text='Value')
+        self.treeview.heading('Column3', text='Confidence Score')
+
+        vsb = ttk.Scrollbar(frame, orient="vertical", command=self.treeview.yview)
+        self.treeview.configure(yscrollcommand=vsb.set)
+
+        self.treeview.pack(side="left", fill="both", expand=True)
+        vsb.pack(side="right", fill="y")
+
+        def edit():
+            selected_item = self.treeview.selection()[0]
+            new_value = askstring("Edit Value", "Enter new value:")
+            if new_value is not None:
+                self.treeview.item(selected_item, values=(
+                    self.treeview.item(selected_item, 'values')[0], new_value, self.treeview.item(selected_item, 'values')[2]))
+
+        def delete():
+            selected_item = self.treeview.selection()[0]
+            self.treeview.delete(selected_item)
+
+        if controller.img_file_path:
+            process_image(controller.img_file_path)
+
+        edit_btn = ttk.Button(self, text="Edit", command=edit)
+        edit_btn.pack()
+        del_btn = ttk.Button(self, text="Delete", command=delete)
+        del_btn.pack()
 
 
 if __name__ == "__main__":
