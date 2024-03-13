@@ -5,70 +5,19 @@ from PIL import Image
 import Levenshtein
 import pandas
 
-path = ("D:/Documents/College/Year 3/OCR Research/OCR Research/data/Drive_images/22548_Tesco Bran "
-        "Flakes_750g_Nutritional Information_Paper _ Board.jpg")
 
-client = client = boto3.client('textract', region_name='us-east-1', aws_access_key_id='AKIATCKATOWRRSB6E5P7',
-                               aws_secret_access_key='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')
-Image = Image.open(path)
-
-with open(path, 'rb') as image:
-    img = bytearray(image.read())
-
-response = client.detect_document_text(
-    Document={'Bytes': img}
-)
-
-text = ""
-for i, item in enumerate(response["Blocks"]):
-    if item['BlockType'] == 'LINE':
-        text = text + " " + item['Text']
-        confidence = item.get('Confidence', 0)
-        # print(f"Text: {item['Text']}, Confidence: {confidence}")
-
-print(text)
-ground_truth = ("NUTRITION INFORMATION /100g %RI* /30g %RI* Energy 1517kJ 455kJ 5% 359kcal 108kcal Fat 2.6g 0.8g 1% of "
-                "which saturates 0.4g 0.1g 1% Carbohydrate 65g 20g 8% of which sugars 14g 4.2g 5% Fibre 14g 4.2g "
-                "Protein 12g 3.6g 7% Salt 0.68g 0.2g 3% Vitamins: Vitamin D 8.4ug 168% 2.5ug 50% Thiamin (B1) 0.91mg "
-                "83% 0.27mg 25% Riboflavin (B2) 1.2mg 86% 0.35mg 25% Niacin (B3) 13mg 81% 4.0mg 25% Vitamin B6 1.2mg "
-                "86% 0.35mg 25% Folic Acid (B9) 166ug 83% 49.8ug 25% Vitamin B12 2.1ug 84% 0.63ug 25% Minerals: Iron "
-                "8.0mg 57% 2.4mg 17%")
-
-ocr_output = text
+def get_aws_client():
+    return boto3.client(
+        'textract',
+        region_name='us-east-1',
+        aws_access_key_id='AKIATCKATOWRRSB6E5P7',
+        aws_secret_access_key='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'
+    )
 
 
-def normalize_string(s):
-    return ''.join(s.split())
-
-
-def calculate_accuracy_and_errors(str1, str2):
-    str1_normalized = normalize_string(str1)
-    str2_normalized = normalize_string(str2)
-
-    levenshtein_distance = Levenshtein.distance(str1_normalized, str2_normalized)
-    levenshtein_editops = Levenshtein.editops(str1_normalized, str2_normalized)
-
-    max_length = max(len(str1_normalized), len(str2_normalized))
-    accuracy = ((max_length - levenshtein_distance) / max_length) * 100
-
-    error_elements = []
-    for error in levenshtein_editops:
-        operation, pos1, pos2 = error
-        if operation == 'replace':
-            error_elements.append((operation, str1_normalized[pos1], str2_normalized[pos2]))
-        elif operation == 'insert':
-            error_elements.append((operation, '-', str2_normalized[pos2]))
-        elif operation == 'delete':
-            error_elements.append((operation, str1_normalized[pos1], '-'))
-
-    return accuracy, error_elements
-
-
-accuracy, errors = calculate_accuracy_and_errors(ocr_output, ground_truth)
-
-print()
-print(f"Levenshtein Accuracy: {accuracy:.2f}%")
-print(f"Errors: {errors}")
+def read_image_as_bytearray(image_path):
+    with open(image_path, 'rb') as image:
+        return bytearray(image.read())
 
 
 def extract_value(nutrient, tokens, index):
@@ -113,7 +62,7 @@ def extract_value(nutrient, tokens, index):
     return 0
 
 
-def extract_nutritional_info():
+def extract_nutritional_info(text, response):
     nutrient_keywords = {
         'energy_kj': ['energy', 'kj'],
         'energy_kcal': ['energy', 'kcal'],
@@ -176,27 +125,38 @@ def extract_nutritional_info():
                         if index + 1 < len(tokens):
                             value = extract_value(nutrient, tokens, index)
                             for i, item in enumerate(response["Blocks"]):
-                                if item['BlockType'] == 'LINE' and (item['Text'].lower() == tokens[index + 1] or tokens[index + 1] in item['Text'].lower().split()):
+                                if item['BlockType'] == 'LINE' and (
+                                        item['Text'].lower() == tokens[index + 1] or tokens[index + 1] in item[
+                                    'Text'].lower().split()):
                                     confidence = item.get('Confidence', 0)
                                     extracted_values[nutrient] = {'value': value, 'confidence': confidence}
 
     return extracted_values
 
 
-result = extract_nutritional_info()
+def process_image(image_path):
+    client = get_aws_client()
 
-# for nutrient, data in result.items():
-#     print(f"{nutrient}: {data['value']}, Confidence: {data['confidence']}")
+    with Image.open(image_path) as image:
+        img = read_image_as_bytearray(image_path)
 
-# for nutrient, value in result.items():
-#     if value:
-#         print(f'{nutrient.capitalize()}: {value}')
-#     is_correct = input("Is this value correct? (y/n): ")
-#     is_correct.lower()
-#     if is_correct == 'n':
-#         correct_value = input("Enter the correct value: ")
-#         result[nutrient] = correct_value
+    response = client.detect_document_text(Document={'Bytes': img})
+
+    text = ""
+    for i, item in enumerate(response["Blocks"]):
+        if item['BlockType'] == 'LINE':
+            text = text + " " + item['Text']
+            confidence = item.get('Confidence', 0)
+            # print(f"Text: {item['Text']}, Confidence: {confidence}")
+
+    result = extract_nutritional_info(text, response)
+
+    df = pd.DataFrame(result).T
+    df.to_csv('nutritional_info.csv')
 
 
-df = pd.DataFrame(result).T
-df.to_csv('nutritional_info.csv')
+if __name__ == "__main__":
+    img_path = ("D:/Documents/College/Year 3/OCR Research/OCR Research/data/Drive_images/21567_Glenisk Organic Kids "
+                "Bio No Added Sugar Vanilla Yogurt_Back (1).jpg")
+
+    process_image(img_path)

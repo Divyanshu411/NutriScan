@@ -2,6 +2,7 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import numpy as np
 import cv2
+from tkinter import ttk
 
 
 class CornerBox():
@@ -119,15 +120,15 @@ class CropApp:
         self.but_frame = tk.Frame(self.master)
         self.but_frame.pack()
 
-        self.reset_butt = tk.Button(
+        self.reset_butt = ttk.Button(
             self.but_frame, text="Reset", width=20, command=self.restCorners)
         self.reset_butt.pack(side=tk.LEFT)
 
-        self.crop_butt = tk.Button(
+        self.crop_butt = ttk.Button(
             self.but_frame, text="Crop", width=20, command=self.cropImage)
         self.crop_butt.pack(side=tk.LEFT)
 
-        self.save = tk.Button(
+        self.save = ttk.Button(
             self.but_frame, text="Save", width=20, command=self.saveImage)
         self.save.pack(side=tk.LEFT)
 
