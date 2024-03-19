@@ -74,8 +74,9 @@ class CornerBox():
 
 
 class CropApp:
-    def __init__(self, master, img):
+    def __init__(self, master, img, on_cropped):
         self.master = master
+        self.on_cropped = on_cropped
 
         self.screen_width = self.master.winfo_screenwidth()
         self.screen_height = self.master.winfo_screenheight()
@@ -189,7 +190,8 @@ class CropApp:
         self.res = cv2.warpPerspective(img, matrix, (maxWidth, maxHeight))
         resized_image = cv2.resize(
             self.res, (0, 0), fx=1 / self.scale_factor, fy=1 / self.scale_factor)
-        cv2.imshow("Result", resized_image)
+        #cv2.imshow("Result", resized_image)
+        self.on_cropped(resized_image)
 
     def saveImage(self):
         cv2.imwrite('result.jpg', self.res)
