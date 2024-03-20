@@ -1,3 +1,4 @@
+import csv
 import tkinter as tk
 from tkinter import ttk, TOP, SUNKEN
 from tkinter import filedialog
@@ -202,6 +203,19 @@ class PageThree(tk.Frame):
         self.label = tk.Label(self.frame_image, image=self.img)
         self.label.pack()
 
+    def edit(self):
+        selected_item = self.treeview.selection()[0]
+        nutrient_name = self.treeview.item(selected_item, 'values')[0]
+        new_value = askstring("Edit Value", f"Enter new value for {nutrient_name}:")
+        if new_value is not None:
+            self.treeview.item(selected_item, values=(
+                self.treeview.item(selected_item, 'values')[0], new_value,
+                self.treeview.item(selected_item, 'values')[2]))
+
+    def delete(self):
+        selected_item = self.treeview.selection()[0]
+        self.treeview.delete(selected_item)
+
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.label = None
@@ -211,17 +225,29 @@ class PageThree(tk.Frame):
         self.controller = controller
 
         my_font = ('Arial', 18, 'bold')
-        page_2_label_1 = tk.Label(self, text='Page 3', width=30, font=my_font)
+        page_2_label_1 = tk.Label(self, text='NutriScan', width=30, font=my_font)
         page_2_label_1.pack()
 
         prev_page_button = ttk.Button(self, text='Back', width=20, command=lambda: controller.show_frame(PageOne))
         prev_page_button.pack()
 
-        frame_table = ttk.Frame(self)
+        self.frame_image = tk.Frame(self, width=600, height=400)
+        self.frame_image.pack(side="left", pady=20, padx=20)
 
-        self.treeview = ttk.Treeview(frame_table, columns=('Column1', 'Column2', 'Column3'), show='headings', height=10)
+        treeview_button_frame = ttk.Frame(self)
+        treeview_button_frame.pack(side="right", padx=20, pady=20)
+
+        edit_btn = ttk.Button(treeview_button_frame, text="Edit", command=self.edit)
+        del_btn = ttk.Button(treeview_button_frame, text="Delete", command=self.delete)
+        edit_btn.pack(side="top", padx=5, pady=5)
+        del_btn.pack(side="top", padx=5, pady=5)
+
+        frame_table = ttk.Frame(self)
+        frame_table.pack(side="top", fill='both', pady=20)
+
+        self.treeview = ttk.Treeview(frame_table, columns=('Column1', 'Column2', 'Column3'), show='headings', height=30)
         self.treeview.heading('Column1', text='Nutrient')
-        self.treeview.heading('Column2', text='Value')
+        self.treeview.heading('Column2', text='Value (g)')
         self.treeview.heading('Column3', text='Confidence Score')
 
         vsb = ttk.Scrollbar(frame_table, orient="vertical", command=self.treeview.yview)
@@ -230,26 +256,26 @@ class PageThree(tk.Frame):
         self.treeview.pack(side="left", fill="both", expand=True)
         vsb.pack(side="right", fill="y")
 
-        def edit():
-            selected_item = self.treeview.selection()[0]
-            new_value = askstring("Edit Value", "Enter new value:")
-            if new_value is not None:
-                self.treeview.item(selected_item, values=(
-                    self.treeview.item(selected_item, 'values')[0], new_value,
-                    self.treeview.item(selected_item, 'values')[2]))
+        def save_csv():
+            file_path = asksaveasfile(initialfile='Untitled.csv',
+                                      defaultextension=".csv", filetypes=[("All files", "*.*"), ("csv", "*.csv")])
+            if file_path:
+                file_path = file_path.name
+                data = []
+                for child in self.treeview.get_children():
+                    values = self.treeview.item(child, 'values')
+                    data.append(values)
 
-        def delete():
-            selected_item = self.treeview.selection()[0]
-            self.treeview.delete(selected_item)
+                with open(file_path, 'w', newline='') as csvfile:
+                    writer = csv.writer(csvfile)
+                    writer.writerow(['Nutrient', 'Value', 'Confidence Score'])
+                    writer.writerows(data)
 
-        edit_btn = ttk.Button(self, text="Edit", command=edit)
-        del_btn = ttk.Button(self, text="Delete", command=delete)
+        frame_buttons = tk.Frame(self)
+        frame_buttons.pack(side="top", padx=5, pady=5)
 
-        self.frame_image = tk.Frame(self, width=600, height=400)
-        self.frame_image.pack(side="left", pady=20, padx=20)
-        frame_table.pack(side="left", fill='both', expand=True, pady=20)
-        edit_btn.pack(pady=20)
-        del_btn.pack()
+        export_csv_btn = ttk.Button(frame_buttons, text="Export CSV", command=save_csv)
+        export_csv_btn.pack(side="left", padx=5)
 
 
 if __name__ == "__main__":
