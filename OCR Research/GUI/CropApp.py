@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 from PIL import Image, ImageTk
 import numpy as np
@@ -78,6 +79,10 @@ class CropApp:
         self.master = master
         self.on_cropped = on_cropped
 
+        self.crop_directory = os.path.join(os.path.dirname(os.path.abspath(img)), "crop")
+        if not os.path.exists(self.crop_directory):
+            os.makedirs(self.crop_directory)
+
         self.screen_width = self.master.winfo_screenwidth()
         self.screen_height = self.master.winfo_screenheight()
 
@@ -126,12 +131,8 @@ class CropApp:
         self.reset_butt.pack(side=tk.LEFT)
 
         self.crop_butt = ttk.Button(
-            self.but_frame, text="Crop", width=20, command=self.cropImage)
+            self.but_frame, text="Crop and Save", width=20, command=self.cropImage)
         self.crop_butt.pack(side=tk.LEFT)
-
-        self.save = ttk.Button(
-            self.but_frame, text="Save", width=20, command=self.saveImage)
-        self.save.pack(side=tk.LEFT)
 
         self.box_id = None
         self.p1_id = None
@@ -191,10 +192,10 @@ class CropApp:
         resized_image = cv2.resize(
             self.res, (0, 0), fx=1 / self.scale_factor, fy=1 / self.scale_factor)
         #cv2.imshow("Result", resized_image)
-        self.on_cropped(resized_image)
 
-    def saveImage(self):
-        cv2.imwrite('result.jpg', self.res)
+        cropped_image_name = os.path.join(self.crop_directory, os.path.basename(self.img_file_name).replace('.', '_cropped.'))
+        cv2.imwrite(cropped_image_name, self.res)
+        self.on_cropped(cropped_image_name)
 
     def drawBox(self, event=None):
         if self.box_id != None:
