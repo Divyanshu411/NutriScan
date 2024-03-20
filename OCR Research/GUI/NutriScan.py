@@ -7,6 +7,7 @@ from CropApp import CropApp
 from tkinterdnd2 import DND_FILES, TkinterDnD
 from tkinter.simpledialog import askstring
 from OCR_extraction import process_image
+from tkinter.filedialog import asksaveasfile
 
 
 class NutriScanApp(TkinterDnD.Tk):
@@ -15,6 +16,7 @@ class NutriScanApp(TkinterDnD.Tk):
         self.state('zoomed')
         self.title('NutriScan')
         self.img_file_path = None
+        self.cropped_image_path = None
 
         self.canvas = tk.Canvas(self)
         self.canvas.pack(side="left", fill="both", expand=True)
@@ -48,6 +50,7 @@ class NutriScanApp(TkinterDnD.Tk):
 
         if cont == PageThree:
             frame.initialize_OCR_extraction(self.img_file_path)
+            frame.populate_treeview_from_csv()
 
         self.update_idletasks()
         self.canvas.configure(scrollregion=self.canvas.bbox("all"))
@@ -58,7 +61,7 @@ class NutriScanApp(TkinterDnD.Tk):
     def popup_page_two(self):
         top = tk.Toplevel(self)
         top.title("Page Two Popup")
-        top.geometry("700x500")
+        top.state("zoomed")
 
         page_two_frame = PageTwo(top, self)
         page_two_frame.pack(fill="both", expand=True)
@@ -68,13 +71,14 @@ class PageOne(tk.Frame):
     def open_popup_page_two(self):
         self.controller.popup_page_two()
 
-    def update_image(self, cropped_image):
-        pil_image = Image.fromarray(cropped_image)
-
-        self.img = ImageTk.PhotoImage(image=pil_image)
+    def update_image(self, cropped_image_path):
+        self.img = Image.open(cropped_image_path)
+        self.img = self.img.resize((600, 400))
+        self.img = ImageTk.PhotoImage(self.img)
 
         for widget in self.frame_image.winfo_children():
             widget.destroy()
+
         label = tk.Label(self.frame_image, image=self.img)
         label.pack()
 
@@ -107,14 +111,15 @@ class PageOne(tk.Frame):
         upload_file_button.pack()
 
         def upload_file():
-            f_types = [('Image Files', '*.png *.jpg *.jpeg *.gif')]
+            f_types = [('Image Files', '*.png *.jpg *.jpeg')]
             filename = filedialog.askopenfilename(filetypes=f_types)
             if filename:
                 open_image(filename)
 
-        def open_image(filename):
+        def open_image(filepath):
+            filepath = filepath.strip('{}')
             global img
-            img = Image.open(filename)
+            img = Image.open(filepath)
             frame_width, frame_height = 600, 400
             width_ratio = frame_width / img.width
             height_ratio = frame_height / img.height
@@ -127,7 +132,7 @@ class PageOne(tk.Frame):
                 widget.destroy()
             label = tk.Label(self.frame_image, image=img)
             label.pack()
-            controller.img_file_path = filename
+            controller.img_file_path = filepath
             controller.show_frame(PageOne)
 
         crop_button = ttk.Button(self, text='Crop Image', width=20, command=self.open_crop_popup)
@@ -148,9 +153,11 @@ class PageTwo(tk.Frame):
         if self.controller.img_file_path:
             self.crop_app = CropApp(self, self.controller.img_file_path, self.on_image_cropped)
 
-    def on_image_cropped(self, cropped_image):
+    def on_image_cropped(self, cropped_image_path):
         self.controller.show_frame(PageOne)
-        self.controller.frames[PageOne].update_image(cropped_image)
+        self.controller.frames[PageOne].update_image(cropped_image_path)
+        self.controller.img_file_path = cropped_image_path
+        self.master.destroy()
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -170,6 +177,9 @@ class PageThree(tk.Frame):
             self.display_image(img_file_path)
 
     def populate_treeview_from_csv(self):
+        x = self.treeview.get_children()
+        for item in x:
+            self.treeview.delete(item)
         try:
             df = pd.read_csv('nutritional_info.csv', index_col=0)
             for index, row in df.iterrows():
