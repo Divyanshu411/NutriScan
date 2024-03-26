@@ -1,14 +1,17 @@
 import csv
+import os
+import tempfile
 import tkinter as tk
 from tkinter import ttk, TOP, SUNKEN
 from tkinter import filedialog
 import pandas as pd
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk, ExifTags
 from CropApp import CropApp
 from tkinterdnd2 import DND_FILES, TkinterDnD
 from tkinter.simpledialog import askstring
 from OCR_extraction import process_image
 from tkinter.filedialog import asksaveasfile
+import sqlite3
 
 
 class NutriScanApp(TkinterDnD.Tk):
@@ -34,7 +37,7 @@ class NutriScanApp(TkinterDnD.Tk):
 
         self.frames = {}
 
-        for F in (PageOne, PageThree):
+        for F in (PageOne, PageTwo):
             frame = F(container, self)
             self.frames[F] = frame
             frame.pack(side="top", fill="both", expand=True)
@@ -49,14 +52,14 @@ class NutriScanApp(TkinterDnD.Tk):
         frame = self.frames[cont]
         frame.pack(side="top", fill="both", expand=True)
 
-        if cont == PageThree:
+        if cont == PageTwo:
             frame.initialize_OCR_extraction(self.img_file_path)
             frame.populate_treeview_from_csv()
 
         self.update_idletasks()
         self.canvas.configure(scrollregion=self.canvas.bbox("all"))
 
-        if cont == PageTwo:
+        if cont == CropPopup:
             self.popup_page_two()
 
     def popup_page_two(self):
@@ -64,7 +67,7 @@ class NutriScanApp(TkinterDnD.Tk):
         top.title("Page Two Popup")
         top.state("zoomed")
 
-        page_two_frame = PageTwo(top, self)
+        page_two_frame = CropPopup(top, self)
         page_two_frame.pack(fill="both", expand=True)
 
 
@@ -73,15 +76,21 @@ class PageOne(tk.Frame):
         self.controller.popup_page_two()
 
     def update_image(self, cropped_image_path):
-        self.img = Image.open(cropped_image_path)
-        self.img = self.img.resize((600, 400))
-        self.img = ImageTk.PhotoImage(self.img)
+        if not os.path.exists(cropped_image_path):
+            print("Error: Cropped image file does not exist at:", cropped_image_path)
+            return
+        try:
+            self.img = Image.open(cropped_image_path)
+            self.img = self.img.resize((600, 400))
+            self.img = ImageTk.PhotoImage(self.img)
 
-        for widget in self.frame_image.winfo_children():
-            widget.destroy()
+            for widget in self.frame_image.winfo_children():
+                widget.destroy()
 
-        label = tk.Label(self.frame_image, image=self.img)
-        label.pack()
+            label = tk.Label(self.frame_image, image=self.img)
+            label.pack()
+        except Exception as e:
+            print("Error:", e)
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -91,8 +100,8 @@ class PageOne(tk.Frame):
         Heading = tk.Label(self, text='NutriScan', width=30, font=my_font1)
         Heading.pack()
 
-        my_font2 = ('Arial', 14, 'bold')
-        label_1 = tk.Label(self, text='Upload the Nutritional label', width=30, font=my_font2)
+        my_font2 = ('Arial', 12, 'bold')
+        label_1 = tk.Label(self, text='Upload Image', width=30, font=my_font2)
         label_1.pack()
 
         entry = tk.Text(self, height=3, width=30)
@@ -102,11 +111,11 @@ class PageOne(tk.Frame):
 
         entry.drop_target_register(DND_FILES)
         entry.dnd_bind('<<Drop>>', lambda e: open_image(e.data))
-        entry.pack()
+        entry.pack(pady=10)
 
-        my_font3 = ('Arial', 14, 'bold')
+        my_font3 = ('Arial', 12, 'bold')
         label_2 = tk.Label(self, text='OR', width=30, font=my_font3)
-        label_2.pack()
+        label_2.pack(pady=5)
 
         upload_file_button = ttk.Button(self, text='Upload File', width=20, command=lambda: upload_file())
         upload_file_button.pack()
@@ -121,6 +130,22 @@ class PageOne(tk.Frame):
             filepath = filepath.strip('{}')
             global img
             img = Image.open(filepath)
+
+            orientation_fixed = False
+            for orientation in ExifTags.TAGS.keys():
+                if ExifTags.TAGS[orientation] == 'Orientation':
+                    break
+            exif = dict(img._getexif().items())
+
+            if 'Orientation' in exif:
+                orientation_fixed = True
+                if exif[orientation] == 3:
+                    img = img.rotate(180, expand=True)
+                elif exif[orientation] == 6:
+                    img = img.rotate(270, expand=True)
+                elif exif[orientation] == 8:
+                    img = img.rotate(90, expand=True)
+
             frame_width, frame_height = 600, 400
             width_ratio = frame_width / img.width
             height_ratio = frame_height / img.height
@@ -128,28 +153,37 @@ class PageOne(tk.Frame):
             new_width = int(img.width * resize_ratio)
             new_height = int(img.height * resize_ratio)
             img = img.resize((new_width, new_height))
+
+            if orientation_fixed:
+                temp_file = tempfile.NamedTemporaryFile(suffix='.png', delete=False)
+                temp_file_path = temp_file.name
+                img.save(temp_file_path)
+                img_file_path = temp_file_path
+            else:
+                img_file_path = filepath
+
             img = ImageTk.PhotoImage(img)
             for widget in self.frame_image.winfo_children():
                 widget.destroy()
             label = tk.Label(self.frame_image, image=img)
             label.pack()
-            controller.img_file_path = filepath
+            controller.img_file_path = img_file_path
             controller.show_frame(PageOne)
 
         crop_button = ttk.Button(self, text='Crop Image', width=20, command=self.open_crop_popup)
         crop_button.pack()
 
-        next_page_button = ttk.Button(self, text='Next', width=20, command=lambda: controller.show_frame(PageThree))
+        next_page_button = ttk.Button(self, text='Next', width=20, command=lambda: controller.show_frame(PageTwo))
         next_page_button.pack()
 
         self.frame_image = tk.Frame(self, width=600, height=400)
-        self.frame_image.pack(pady=20)
+        self.frame_image.pack(pady=20, padx=10)
 
     def open_crop_popup(self):
         self.controller.popup_page_two()
 
 
-class PageTwo(tk.Frame):
+class CropPopup(tk.Frame):
     def initialize_crop_app(self):
         if self.controller.img_file_path:
             self.crop_app = CropApp(self, self.controller.img_file_path, self.on_image_cropped)
@@ -169,7 +203,7 @@ class PageTwo(tk.Frame):
             self.initialize_crop_app()
 
 
-class PageThree(tk.Frame):
+class PageTwo(tk.Frame):
     def initialize_OCR_extraction(self, img_file_path):
         if self.controller.img_file_path:
             self.img_file_path = img_file_path
@@ -184,7 +218,12 @@ class PageThree(tk.Frame):
         try:
             df = pd.read_csv('nutritional_info.csv', index_col=0)
             for index, row in df.iterrows():
-                self.treeview.insert('', 'end', values=(index, row['Value'], row['Confidence']))
+                values = (index, row['Value'], row['Confidence'])
+                if row['Confidence'] < 90 and row['Confidence'] != 0:
+                    self.treeview.insert('', 'end', values=values, tags=('orange_row',))
+                else:
+                    self.treeview.insert('', 'end', values=values)
+            self.treeview.tag_configure('orange_row', background='orange')
         except FileNotFoundError:
             print("CSV file not found.")
 
@@ -271,11 +310,53 @@ class PageThree(tk.Frame):
                     writer.writerow(['Nutrient', 'Value', 'Confidence Score'])
                     writer.writerows(data)
 
+        def export_appended_csv():
+            conn = sqlite3.connect('nutrition_data.db')
+
+            # Read the table into a DataFrame
+            df = pd.read_sql_query("SELECT * FROM nutrition_table", conn)
+
+            # Close the database connection
+            conn.close()
+            file_path = asksaveasfile(initialfile='Untitled_appended.csv',
+                                      defaultextension=".csv", filetypes=[("All files", "*.*"), ("csv", "*.csv")])
+            if file_path is not None:
+                df.to_csv(file_path.name, index=False)
+
+        def append_csv():
+            image_file_name = os.path.basename(self.controller.img_file_path)
+
+            df = pd.read_csv('nutritional_info.csv')
+            column_order = ['Food label'] + df['Nutrient'].drop_duplicates().tolist()
+            df = df.drop(columns=['Confidence'])
+
+            df['Food label'] = image_file_name
+
+            df = df.pivot_table(index='Food label', columns='Nutrient', values='Value', aggfunc='first')
+            df.reset_index(inplace=True)
+
+            df = df[column_order]
+            conn = sqlite3.connect('nutrition_data.db')
+
+            query = f"SELECT * FROM nutrition_table WHERE `Food label` = '{image_file_name}'"
+            existing_df = pd.read_sql_query(query, conn)
+
+            if existing_df.empty:
+                df.to_sql('nutrition_table', conn, if_exists='append', index=False)
+
+            conn.close()
+
         frame_buttons = tk.Frame(self)
         frame_buttons.pack(side="top", padx=5, pady=5)
 
         export_csv_btn = ttk.Button(frame_buttons, text="Export CSV", command=save_csv)
         export_csv_btn.pack(side="left", padx=5)
+
+        append_csv_btn = ttk.Button(frame_buttons, text="Append CSV", command=append_csv)
+        append_csv_btn.pack(side="left", padx=5)
+
+        export_append_csv_btn = ttk.Button(frame_buttons, text="Export Append CSV", command=export_appended_csv)
+        export_append_csv_btn.pack(side="left", padx=5)
 
 
 if __name__ == "__main__":

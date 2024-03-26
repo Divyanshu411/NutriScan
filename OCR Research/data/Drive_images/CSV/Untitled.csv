@@ -1,13 +1,13 @@
-Nutrient,Value,Confidence
-energy_kj,0.0,99.82725524902344
-energy_kcal,0.0,99.82725524902344
-Protein,3.3,99.92235565185547
-Carbohydrates,5.0,99.89353942871094
-Total Sugar,4.6,99.844970703125
-salt,0.16,99.92149353027344
+Nutrient,Value,Confidence Score
+energy_kj,178.0,97.4692840576172
+energy_kcal,42.0,97.4692840576172
+Protein,3.3,99.90331268310548
+Carbohydrates,5.0,99.90999603271484
+Total Sugar,4.6,99.8368682861328
+salt,0.1,99.94098663330078
 Fibre,0.0,0.0
-Fat,1.0,99.92556762695312
-Saturated_fat,0.6,99.9202651977539
+Fat,1.0,99.92974090576172
+Saturated_fat,0.6,99.94148254394533
 Monounsaturated_fat,0.0,0.0
 Polyunsaturated_fat,0.0,0.0
 n-6_poly,0.0,0.0
@@ -17,25 +17,25 @@ Cholesterol,0.0,0.0
 total_vitamin_A,0.0,0.0
 Retinol,0.0,0.0
 Carotene,0.0,0.0
-Vitamin_D,2e-06,94.92076873779297
-Vitamin_E,0.0018,98.62820434570312
+Vitamin_D,2e-06,94.79106903076172
+Vitamin_E,0.0018,97.19798278808594
 Vitamin_K,0.0,0.0
 Thiamin,0.0,0.0
-Riboflavin,0.00023,81.95641326904297
+Riboflavin,0.00023,98.77582550048828
 Tryptophan,0.0,0.0
 Niacin_equivalent,0.0,0.0
 Vitamin_B6,0.0,0.0
-Vitamin_B12,4.0000000000000003e-07,84.62858581542969
+Vitamin_B12,4.0000000000000003e-07,91.1249542236328
 Total_folate,0.0,0.0
 Natural_folate,0.0,0.0
-Folic_acid,3.6e-05,99.92170715332031
+Folic_acid,3.6e-05,99.89775848388672
 Dietary_folate_equivalents,0.0,0.0
 Pantothenate,0.0,0.0
 Biotin,0.0,0.0
 Vitamin_C,0.0,0.0
 Sodium,0.0,0.0
 Potassium,0.0,0.0
-Calcium,0.16,98.85093688964844
+Calcium,0.16,98.7681655883789
 Magnesium,0.0,0.0
 Phosphorus,0.0,0.0
 Iron,0.0,0.0
