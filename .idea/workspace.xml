@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0cac1d3-eef6-4562-88c4-4db3d74cf9f9" name="Changes" comment="Enhanced functionality: Saved cropped image for nutritional data extraction, Fixed drag and drop feature, Improved treeview update on new image upload.">
+    <list default="true" id="d0cac1d3-eef6-4562-88c4-4db3d74cf9f9" name="Changes" comment="Export as csv feature added.">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/Documents/Week 6/Future Planning.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/Documents/Week 6/GUI demo.fig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/CropApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/CropApp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/OCR_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/OCR_extraction.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/nutritional_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/nutritional_info.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,85 +54,86 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.CropApp.executor&quot;: &quot;Run&quot;,
-    &quot;Python.NutriScan.executor&quot;: &quot;Run&quot;,
-    &quot;Python.OCR_extraction.executor&quot;: &quot;Run&quot;,
-    &quot;Python.alphabet_frequency.executor&quot;: &quot;Run&quot;,
-    &quot;Python.aws_accuracy_test-2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.aws_accuracy_test-3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.aws_accuracy_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.aws_line_token_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.aws_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.aws_test2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.azure_accuracy_test-2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.azure_accuracy_test-3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.azure_accuracy_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.azure_character.executor&quot;: &quot;Run&quot;,
-    &quot;Python.azure_levenshtein.executor&quot;: &quot;Run&quot;,
-    &quot;Python.azure_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.azure_test2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.azure_tokenization.executor&quot;: &quot;Run&quot;,
-    &quot;Python.combine comparison.executor&quot;: &quot;Run&quot;,
-    &quot;Python.combine_comparison.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dictonaries_levenshtein.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.dictonaries_multiple_images.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dictonaries_multiple_images2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dictonaries_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dictonaries_test10_levenshtein.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dictonaries_test11_multiple_images.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dictonaries_test2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dictonaries_test3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dictonaries_test4.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dictonaries_test5_single_line.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dictonaries_test6_energy.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dictonaries_test7_df.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dictonaries_test7_energy2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dictonaries_test8_line_by_line.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dictonaries_test9_line_by_line.executor&quot;: &quot;Run&quot;,
-    &quot;Python.google tokenization.executor&quot;: &quot;Run&quot;,
-    &quot;Python.google_accuracy_test-2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.google_accuracy_test-3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.google_accuracy_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.google_char_frequency.executor&quot;: &quot;Run&quot;,
-    &quot;Python.google_levenshtein_comparison.executor&quot;: &quot;Run&quot;,
-    &quot;Python.google_ocr_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.levenshtein_comparison.executor&quot;: &quot;Run&quot;,
-    &quot;Python.opencv_text.executor&quot;: &quot;Run&quot;,
-    &quot;Python.read_folder_images.executor&quot;: &quot;Run&quot;,
-    &quot;Python.table_extraction.executor&quot;: &quot;Run&quot;,
-    &quot;Python.table_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tesseract_accuracy_test-3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tesseract_accuracy_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tesseract_accuracy_test_2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tesseract_bleu_score.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tesseract_char_frequency.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tesseract_comparison.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.tesseract_levenshtein_comparison.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tesseract_line_tokenization.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tesseract_tokenization.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tkinter_skeleton.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tkinter_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tokenization-2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tokenization.executor&quot;: &quot;Run&quot;,
-    &quot;Python.treeview_test.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Documents/College/Year 3/OCR Research/OCR Research/GUI&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.CropApp.executor": "Run",
+    "Python.NutriScan.executor": "Run",
+    "Python.OCR_extraction.executor": "Run",
+    "Python.alphabet_frequency.executor": "Run",
+    "Python.aws_accuracy_test-2.executor": "Run",
+    "Python.aws_accuracy_test-3.executor": "Run",
+    "Python.aws_accuracy_test.executor": "Run",
+    "Python.aws_line_token_test.executor": "Run",
+    "Python.aws_test.executor": "Run",
+    "Python.aws_test2.executor": "Run",
+    "Python.azure_accuracy_test-2.executor": "Run",
+    "Python.azure_accuracy_test-3.executor": "Run",
+    "Python.azure_accuracy_test.executor": "Run",
+    "Python.azure_character.executor": "Run",
+    "Python.azure_levenshtein.executor": "Run",
+    "Python.azure_test.executor": "Run",
+    "Python.azure_test2.executor": "Run",
+    "Python.azure_tokenization.executor": "Run",
+    "Python.combine comparison.executor": "Run",
+    "Python.combine_comparison.executor": "Run",
+    "Python.dictonaries_levenshtein.executor": "Debug",
+    "Python.dictonaries_multiple_images.executor": "Run",
+    "Python.dictonaries_multiple_images2.executor": "Run",
+    "Python.dictonaries_test.executor": "Run",
+    "Python.dictonaries_test10_levenshtein.executor": "Run",
+    "Python.dictonaries_test11_multiple_images.executor": "Run",
+    "Python.dictonaries_test2.executor": "Run",
+    "Python.dictonaries_test3.executor": "Run",
+    "Python.dictonaries_test4.executor": "Run",
+    "Python.dictonaries_test5_single_line.executor": "Run",
+    "Python.dictonaries_test6_energy.executor": "Run",
+    "Python.dictonaries_test7_df.executor": "Run",
+    "Python.dictonaries_test7_energy2.executor": "Run",
+    "Python.dictonaries_test8_line_by_line.executor": "Run",
+    "Python.dictonaries_test9_line_by_line.executor": "Run",
+    "Python.google tokenization.executor": "Run",
+    "Python.google_accuracy_test-2.executor": "Run",
+    "Python.google_accuracy_test-3.executor": "Run",
+    "Python.google_accuracy_test.executor": "Run",
+    "Python.google_char_frequency.executor": "Run",
+    "Python.google_levenshtein_comparison.executor": "Run",
+    "Python.google_ocr_test.executor": "Run",
+    "Python.levenshtein_comparison.executor": "Run",
+    "Python.opencv_text.executor": "Run",
+    "Python.read_folder_images.executor": "Run",
+    "Python.table_extraction.executor": "Run",
+    "Python.table_test.executor": "Run",
+    "Python.tesseract_accuracy_test-3.executor": "Run",
+    "Python.tesseract_accuracy_test.executor": "Run",
+    "Python.tesseract_accuracy_test_2.executor": "Run",
+    "Python.tesseract_bleu_score.executor": "Run",
+    "Python.tesseract_char_frequency.executor": "Run",
+    "Python.tesseract_comparison.executor": "Debug",
+    "Python.tesseract_levenshtein_comparison.executor": "Run",
+    "Python.tesseract_line_tokenization.executor": "Run",
+    "Python.tesseract_tokenization.executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.test2.executor": "Run",
+    "Python.tkinter_skeleton.executor": "Run",
+    "Python.tkinter_test.executor": "Run",
+    "Python.tokenization-2.executor": "Run",
+    "Python.tokenization.executor": "Run",
+    "Python.treeview_test.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Documents/College/Year 3/OCR Research/OCR Research/GUI",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\College\Year 3\OCR Research\OCR Research\GUI" />
@@ -146,7 +150,7 @@
       <recent name="D:\Documents\College\Year 3\OCR Research\tesseract-OCR\Case 1" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.NutriScan">
     <configuration name="NutriScan" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="OCR Research" />
       <option name="ENV_FILES" value="" />
@@ -170,9 +174,33 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="OCR Research" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/OCR Research/GUI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OCR Research/GUI/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.NutriScan" />
+        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -230,7 +258,13 @@
       <workItem from="1710843452889" duration="1535000" />
       <workItem from="1710845301496" duration="7054000" />
       <workItem from="1710930023393" duration="1133000" />
-      <workItem from="1710936092825" duration="14844000" />
+      <workItem from="1710936092825" duration="15607000" />
+      <workItem from="1711016179233" duration="1072000" />
+      <workItem from="1711018528471" duration="3344000" />
+      <workItem from="1711022842075" duration="2111000" />
+      <workItem from="1711025081123" duration="452000" />
+      <workItem from="1711104015724" duration="6233000" />
+      <workItem from="1711448051022" duration="10045000" />
     </task>
     <task id="LOCAL-00001" summary="Added dictionaries for variables, extracted data from food labels, and stored in tables">
       <option name="closed" value="true" />
@@ -344,7 +378,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710944395632</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Export as csv feature added.">
+      <option name="closed" value="true" />
+      <created>1710953700647</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1710953700647</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +406,8 @@
     <MESSAGE value="Integrate TreeView to display accurately the extracted data from images." />
     <MESSAGE value="Implemented cropping functionality within a popup window, enabling full-screen zoom in the tkinter window. Also, incorporated an image frame alongside the extracted data table." />
     <MESSAGE value="Enhanced functionality: Saved cropped image for nutritional data extraction, Fixed drag and drop feature, Improved treeview update on new image upload." />
-    <option name="LAST_COMMIT_MESSAGE" value="Enhanced functionality: Saved cropped image for nutritional data extraction, Fixed drag and drop feature, Improved treeview update on new image upload." />
+    <MESSAGE value="Export as csv feature added." />
+    <option name="LAST_COMMIT_MESSAGE" value="Export as csv feature added." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -389,9 +432,9 @@
     <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_test9_line_by_line.coverage" NAME="dictonaries_test9_line_by_line Coverage Results" MODIFIED="1708530789072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
     <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_test4.coverage" NAME="dictonaries_test4 Coverage Results" MODIFIED="1708365196013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
     <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_test.coverage" NAME="dictonaries_test Coverage Results" MODIFIED="1708529386434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
-    <SUITE FILE_PATH="coverage/OCR_Research$tesseract_tokenization.coverage" NAME="tesseract_tokenization Coverage Results" MODIFIED="1707994688508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tesseract-OCR" />
-    <SUITE FILE_PATH="coverage/OCR_Research$aws_accuracy_test_2.coverage" NAME="aws_accuracy_test-2 Coverage Results" MODIFIED="1708001124295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/aws_textract/Case 2" />
     <SUITE FILE_PATH="coverage/OCR_Research$table_extraction.coverage" NAME="table_extraction Coverage Results" MODIFIED="1708428361571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/aws_textract" />
+    <SUITE FILE_PATH="coverage/OCR_Research$aws_accuracy_test_2.coverage" NAME="aws_accuracy_test-2 Coverage Results" MODIFIED="1708001124295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/aws_textract/Case 2" />
+    <SUITE FILE_PATH="coverage/OCR_Research$tesseract_tokenization.coverage" NAME="tesseract_tokenization Coverage Results" MODIFIED="1707994688508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tesseract-OCR" />
     <SUITE FILE_PATH="coverage/OCR_Research$azure_test.coverage" NAME="azure_test Coverage Results" MODIFIED="1707839860646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Azure" />
     <SUITE FILE_PATH="coverage/OCR_Research$aws_line_token_test.coverage" NAME="aws_line_token_test Coverage Results" MODIFIED="1707996232200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/aws_textract" />
     <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_test5_single_line.coverage" NAME="dictonaries_test5_single_line Coverage Results" MODIFIED="1708364762990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
@@ -406,7 +449,7 @@
     <SUITE FILE_PATH="coverage/OCR_Research$alphabet_frequency.coverage" NAME="alphabet_frequency Coverage Results" MODIFIED="1707748153692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Comparison" />
     <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_test7_df.coverage" NAME="dictonaries_test7_df Coverage Results" MODIFIED="1708437465291" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
     <SUITE FILE_PATH="coverage/OCR_Research$tokenization.coverage" NAME="tokenization Coverage Results" MODIFIED="1707819610899" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Comparison" />
-    <SUITE FILE_PATH="coverage/OCR_Research$NutriScan.coverage" NAME="NutriScan Coverage Results" MODIFIED="1710952927182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/GUI" />
+    <SUITE FILE_PATH="coverage/OCR_Research$NutriScan.coverage" NAME="NutriScan Coverage Results" MODIFIED="1711465439999" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/GUI" />
     <SUITE FILE_PATH="coverage/OCR_Research$google_accuracy_test.coverage" NAME="google_accuracy_test Coverage Results" MODIFIED="1707847834941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Google Vision/Case 2" />
     <SUITE FILE_PATH="coverage/OCR_Research$table_test.coverage" NAME="table_test Coverage Results" MODIFIED="1708090089589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prompting" />
     <SUITE FILE_PATH="coverage/OCR_Research$azure_test2.coverage" NAME="azure_test2 Coverage Results" MODIFIED="1708428756251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Azure" />
@@ -436,7 +479,7 @@
     <SUITE FILE_PATH="coverage/OCR_Research$tesseract_levenshtein_comparison.coverage" NAME="tesseract_levenshtein_comparison Coverage Results" MODIFIED="1707999931107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tesseract-OCR" />
     <SUITE FILE_PATH="coverage/OCR_Research$levenshtein_comparison.coverage" NAME="levenshtein_comparison Coverage Results" MODIFIED="1707823084152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Comparison" />
     <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_test8_line_by_line.coverage" NAME="dictonaries_test8_line_by_line Coverage Results" MODIFIED="1708529195113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
-    <SUITE FILE_PATH="coverage/OCR_Research$test.coverage" NAME="test Coverage Results" MODIFIED="1709638355162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/GUI" />
+    <SUITE FILE_PATH="coverage/OCR_Research$test.coverage" NAME="test Coverage Results" MODIFIED="1711463643713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/GUI" />
     <SUITE FILE_PATH="coverage/OCR_Research$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1707389500408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tesseract-OCR" />
     <SUITE FILE_PATH="coverage/OCR_Research$google_levenshtein_comparison.coverage" NAME="google_levenshtein_comparison Coverage Results" MODIFIED="1707824225353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Google Vision" />
     <SUITE FILE_PATH="coverage/OCR_Research$tesseract_accuracy_test.coverage" NAME="tesseract_accuracy_test Coverage Results" MODIFIED="1707847297783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tesseract-OCR" />
