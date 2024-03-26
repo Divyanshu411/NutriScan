@@ -130,9 +130,13 @@ class CropApp:
             self.but_frame, text="Reset", width=20, command=self.restCorners)
         self.reset_butt.pack(side=tk.LEFT)
 
-        self.crop_butt = ttk.Button(
+        self.crop_and_sav_butt = ttk.Button(
             self.but_frame, text="Crop and Save", width=20, command=self.cropImage)
-        self.crop_butt.pack(side=tk.LEFT)
+        self.crop_and_sav_butt.pack(side=tk.LEFT)
+
+        self.rotate_image_butt = ttk.Button(
+            self.but_frame, text="Rotate", width=20, command=self.rotate_image)
+        self.rotate_image_butt.pack(side=tk.LEFT)
 
         self.box_id = None
         self.p1_id = None
@@ -157,6 +161,16 @@ class CropApp:
         self.NE.reset()
         self.SE.reset()
         self.SW.reset()
+
+    def rotate_image(self):
+        self.im = self.im.rotate(90, expand=True)
+        self.img_canvas = ImageTk.PhotoImage(self.im)
+        self.canvas.itemconfig(self.img_canvas_img_id, image=self.img_canvas)
+        self.NW.reset()
+        self.NE.reset()
+        self.SE.reset()
+        self.SW.reset()
+        self.drawBox()
 
     def cropImage(self):
         A, B, C, D = self.NW.coords, self.NE.coords, self.SE.coords, self.SW.coords
