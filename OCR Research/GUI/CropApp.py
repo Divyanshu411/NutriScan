@@ -7,7 +7,7 @@ from tkinter import ttk
 import customtkinter as ctk
 
 
-class CornerBox():
+class CornerBox:
     def __init__(self, pos, canvas, c_height, c_width):
         if pos == 'NW':
             self.x, self.y = 5, 5
