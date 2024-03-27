@@ -15,7 +15,7 @@ import sqlite3
 import customtkinter as ctk
 from tkinter import messagebox
 
-ctk.set_appearance_mode("light")
+ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
 
 
@@ -131,21 +131,30 @@ class PageOne(ctk.CTkFrame):
             img = Image.open(filepath)
 
             orientation_fixed = False
-            exif = img._getexif()
-            if exif is not None:
+            if hasattr(img, '_getexif'):  # only present in JPEGs
                 for orientation in ExifTags.TAGS.keys():
                     if ExifTags.TAGS[orientation] == 'Orientation':
                         break
-                exif_dict = dict(exif.items())
+                e = img._getexif()  # returns None if no EXIF data
+                if e is not None:
+                    exif = dict(e.items())
+                    if orientation in exif:
+                        orientation_fixed = True
+                        if exif[orientation] == 3:
+                            img = img.rotate(180, expand=True)
+                        elif exif[orientation] == 6:
+                            img = img.rotate(270, expand=True)
+                        elif exif[orientation] == 8:
+                            img = img.rotate(90, expand=True)
 
-                if orientation in exif_dict:
-                    orientation_fixed = True
-                    if exif_dict[orientation] == 3:
-                        img = img.rotate(180, expand=True)
-                    elif exif_dict[orientation] == 6:
-                        img = img.rotate(270, expand=True)
-                    elif exif_dict[orientation] == 8:
-                        img = img.rotate(90, expand=True)
+            # Save the original oriented image before resizing
+            if orientation_fixed:
+                temp_file = tempfile.NamedTemporaryFile(suffix='.png', delete=False)
+                temp_file_path = temp_file.name
+                img.save(temp_file_path)
+                original_img_file_path = temp_file_path
+            else:
+                original_img_file_path = filepath
 
             frame_width, frame_height = 600, 400
             width_ratio = frame_width / img.width
@@ -155,21 +164,13 @@ class PageOne(ctk.CTkFrame):
             new_height = int(img.height * resize_ratio)
             img = img.resize((new_width, new_height))
 
-            if orientation_fixed:
-                temp_file = tempfile.NamedTemporaryFile(suffix='.png', delete=False)
-                temp_file_path = temp_file.name
-                img.save(temp_file_path)
-                img_file_path = temp_file_path
-            else:
-                img_file_path = filepath
-
             img = ImageTk.PhotoImage(img)
             for widget in self.frame_image.winfo_children():
                 widget.destroy()
             label = ctk.CTkLabel(self.frame_image, image=img, text="")
             label.place(x=frame_width / 2 - new_width / 2, y=frame_height / 2 - new_height / 2)
             label.lift()
-            controller.img_file_path = img_file_path
+            controller.img_file_path = original_img_file_path  # Use the original oriented image
             controller.show_frame(PageOne)
 
         crop_button = ctk.CTkButton(self, text='Crop Image', width=20, command=self.open_crop_popup)
@@ -275,7 +276,7 @@ class PageTwo(ctk.CTkFrame):
         self.process_image_result = None
         self.controller = controller
 
-        my_font = ('Arial', 28, 'bold')
+        my_font = ('Arial', 18, 'bold')
         page_2_label_1 = ctk.CTkLabel(self, text='NutriScan', width=30, font=my_font)
         page_2_label_1.pack()
 
