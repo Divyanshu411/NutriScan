@@ -4,6 +4,7 @@ from PIL import Image, ImageTk
 import numpy as np
 import cv2
 from tkinter import ttk
+import customtkinter as ctk
 
 
 class CornerBox():
@@ -79,6 +80,30 @@ class CropApp:
         self.master = master
         self.on_cropped = on_cropped
 
+        main_frame = tk.Frame(master)
+        main_frame.pack(fill=tk.BOTH, expand=1)
+
+        my_canvas = tk.Canvas(main_frame)
+        my_canvas.pack(side="left", fill="both", expand=1)
+
+        scrollbar = ctk.CTkScrollbar(main_frame, orientation="vertical", command=my_canvas.yview)
+        scrollbar.pack(side="right", fill="y")
+
+        my_canvas.config(yscrollcommand=scrollbar.set)
+        my_canvas.bind('<Configure>', lambda e: my_canvas.configure(scrollregion=my_canvas.bbox('all')))
+
+        second_frame = tk.Frame(my_canvas)
+
+        my_canvas.create_window((0, 0), window=second_frame, anchor="nw")
+
+        my_font1 = ('Times', 28, 'bold')
+        Heading = tk.Label(second_frame, text='NutriScan', width=30, font=my_font1)
+        Heading.pack(pady=10, padx=200)
+
+        my_font2 = ('Arial', 16, 'bold')
+        label_2 = tk.Label(second_frame, text='Crop Images', width=30, font=my_font2)
+        label_2.pack()
+
         self.crop_directory = os.path.join(os.path.dirname(os.path.abspath(img)), "crop")
         if not os.path.exists(self.crop_directory):
             os.makedirs(self.crop_directory)
@@ -110,9 +135,8 @@ class CropApp:
         self.c_width = self.img_width + 10
         self.c_height = self.img_height + 10
 
-        self.canvas = tk.Canvas(
-            self.master, width=self.c_width, height=self.c_height)
-        self.canvas.pack()
+        self.canvas = tk.Canvas(second_frame, width=self.c_width, height=self.c_height)
+        self.canvas.pack(pady=10)
 
         self.img_canvas = ImageTk.PhotoImage(self.im)
         self.img_canvas_img_id = self.canvas.create_image(
@@ -123,20 +147,20 @@ class CropApp:
         self.SE = CornerBox('SE', self.canvas, self.c_height, self.c_width)
         self.SW = CornerBox('SW', self.canvas, self.c_height, self.c_width)
 
-        self.but_frame = tk.Frame(self.master)
+        self.but_frame = tk.Frame(second_frame)
         self.but_frame.pack()
 
-        self.reset_butt = ttk.Button(
-            self.but_frame, text="Reset", width=20, command=self.restCorners)
-        self.reset_butt.pack(side=tk.LEFT)
+        self.reset_butt = ctk.CTkButton(
+            self.but_frame, text="Reset", width=100, command=self.restCorners)
+        self.reset_butt.pack(side=tk.LEFT, pady=5, padx=5)
 
-        self.crop_and_sav_butt = ttk.Button(
-            self.but_frame, text="Crop and Save", width=20, command=self.cropImage)
-        self.crop_and_sav_butt.pack(side=tk.LEFT)
+        self.crop_and_sav_butt = ctk.CTkButton(
+            self.but_frame, text="Crop and Save", width=100, command=self.cropImage)
+        self.crop_and_sav_butt.pack(side=tk.LEFT, pady=5, padx=5)
 
-        self.rotate_image_butt = ttk.Button(
-            self.but_frame, text="Rotate", width=20, command=self.rotate_image)
-        self.rotate_image_butt.pack(side=tk.LEFT)
+        self.rotate_image_butt = ctk.CTkButton(
+            self.but_frame, text="Rotate", width=100, command=self.rotate_image)
+        self.rotate_image_butt.pack(side=tk.LEFT, pady=5, padx=5)
 
         self.box_id = None
         self.p1_id = None
@@ -149,9 +173,6 @@ class CropApp:
         for i in [self.NW, self.NE, self.SE, self.SW]:
             self.canvas.tag_bind(i.cb_id, "<Button-1>", i.grab)
             self.canvas.tag_bind(i.cb_id, "<B1-Motion>", i.drag)
-
-    def destroy(self):
-        self.master.destroy()
 
     def printBoxDetails(self):
         print(self.NW.coords, self.NE.coords, self.SE.coords, self.SW.coords)
@@ -205,9 +226,10 @@ class CropApp:
         self.res = cv2.warpPerspective(img, matrix, (maxWidth, maxHeight))
         resized_image = cv2.resize(
             self.res, (0, 0), fx=1 / self.scale_factor, fy=1 / self.scale_factor)
-        #cv2.imshow("Result", resized_image)
+        # cv2.imshow("Result", resized_image)
 
-        cropped_image_name = os.path.join(self.crop_directory, os.path.basename(self.img_file_name).replace('.', '_cropped.'))
+        cropped_image_name = os.path.join(self.crop_directory,
+                                          os.path.basename(self.img_file_name).replace('.', '_cropped.'))
         cv2.imwrite(cropped_image_name, self.res)
         self.on_cropped(cropped_image_name)
 
