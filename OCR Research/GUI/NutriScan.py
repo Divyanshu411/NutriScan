@@ -180,7 +180,7 @@ class PageOne(ctk.CTkFrame):
         self.frame_image.pack(padx=10)
 
         next_page_button = ctk.CTkButton(self, text='Next', width=130,
-                                         command=lambda: self.controller.show_frame(PageTwo))
+                                         command=self.next_page)
         next_page_button.pack(pady=5)
 
     def open_crop_popup(self):
@@ -276,18 +276,22 @@ class PageTwo(ctk.CTkFrame):
         self.process_image_result = None
         self.controller = controller
 
-        my_font = ('Arial', 18, 'bold')
+        my_font = ('Times', 28, 'bold')
         page_2_label_1 = ctk.CTkLabel(self, text='NutriScan', width=30, font=my_font)
         page_2_label_1.pack()
 
-        prev_page_button = ctk.CTkButton(self, text='Back', width=20, command=lambda: controller.show_frame(PageOne))
+        back_img = tk.PhotoImage(file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/back.png")
+
+        prev_page_button = ctk.CTkButton(self, image=back_img, text='Back', width=20, command=lambda: controller.show_frame(PageOne))
         prev_page_button.pack(side="top", pady=10)
 
         treeview_button_frame = ctk.CTkFrame(self)
         treeview_button_frame.pack(side="right", padx=20, pady=20)
 
-        edit_btn = ctk.CTkButton(treeview_button_frame, text="Edit", command=self.edit)
-        del_btn = ctk.CTkButton(treeview_button_frame, text="Delete", command=self.delete)
+        edit_img = tk.PhotoImage(file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/edit.png")
+        delete_img = tk.PhotoImage(file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/delete.png")
+        edit_btn = ctk.CTkButton(treeview_button_frame, image=edit_img, text="Edit", command=self.edit)
+        del_btn = ctk.CTkButton(treeview_button_frame, image=delete_img, text="Delete", command=self.delete)
         edit_btn.pack(side="top", padx=5, pady=5)
         del_btn.pack(side="top", padx=5, pady=5)
 
@@ -295,7 +299,7 @@ class PageTwo(ctk.CTkFrame):
         self.frame_image.pack(side="left", padx=20)
 
         frame_table = ctk.CTkFrame(self)
-        frame_table.pack(side="top", fill='both', pady=30)
+        frame_table.pack(side="top", fill='both', pady=10)
 
         self.style = ttk.Style()
         self.style.configure("Treeview",
@@ -347,6 +351,10 @@ class PageTwo(ctk.CTkFrame):
                 df.to_csv(file_path.name, index=False)
 
         def append_csv():
+            if self.controller.img_file_path is None:
+                messagebox.showerror("Error", "No image file selected.")
+                return
+
             image_file_name = os.path.basename(self.controller.img_file_path)
 
             df = pd.read_csv('nutritional_info.csv')
@@ -361,24 +369,39 @@ class PageTwo(ctk.CTkFrame):
             df = df[column_order]
             conn = sqlite3.connect('nutrition_data.db')
 
+            cur = conn.cursor()
+            create_table_sql = f"CREATE TABLE IF NOT EXISTS nutrition_table ({', '.join([f'`{col}` TEXT' for col in df.columns])});"
+            cur.execute(create_table_sql)
+            conn.commit()
+
             query = f"SELECT * FROM nutrition_table WHERE `Food label` = '{image_file_name}'"
             existing_df = pd.read_sql_query(query, conn)
 
             if existing_df.empty:
                 df.to_sql('nutrition_table', conn, if_exists='append', index=False)
+                messagebox.showinfo("Success", "Data appended to CSV successfully!")
+            else:
+                messagebox.showwarning("Warning", "Data for this food label already exists in the CSV.")
 
+            cur.close()
             conn.close()
 
         frame_buttons = ctk.CTkFrame(self)
         frame_buttons.pack(side="top", padx=5, pady=5)
 
-        export_csv_btn = ctk.CTkButton(frame_buttons, text="Export CSV", command=save_csv)
+        export_img = tk.PhotoImage(file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/export.png")
+        append_img = tk.PhotoImage(file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/append.png")
+        download_img = tk.PhotoImage(
+            file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/downloads.png")
+
+        export_csv_btn = ctk.CTkButton(frame_buttons, image=export_img, text="Export CSV", command=save_csv)
         export_csv_btn.pack(side="left", padx=5)
 
-        append_csv_btn = ctk.CTkButton(frame_buttons, text="Append CSV", command=append_csv)
+        append_csv_btn = ctk.CTkButton(frame_buttons, image=append_img, text="Append CSV", command=append_csv)
         append_csv_btn.pack(side="left", padx=5)
 
-        export_append_csv_btn = ctk.CTkButton(frame_buttons, text="Export Append CSV", command=export_appended_csv)
+        export_append_csv_btn = ctk.CTkButton(frame_buttons, image=download_img, text="Export Append CSV",
+                                              command=export_appended_csv)
         export_append_csv_btn.pack(side="left", padx=5)
 
 
