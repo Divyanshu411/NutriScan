@@ -6,9 +6,11 @@ import os
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def hello_world():
     return 'Hello World'
+
 
 @app.route('/extract', methods=['POST'])
 def extract_nutritional_info():
@@ -44,4 +46,3 @@ def extract_nutritional_info():
             return jsonify({'data': data_dict})
         except Exception as e:
             return jsonify({'error': str(e)})
-
