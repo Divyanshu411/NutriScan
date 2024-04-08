@@ -1,3 +1,4 @@
+import json
 import re
 import boto3
 import pandas as pd
@@ -7,20 +8,33 @@ import pandas
 
 
 def get_aws_client():
+    """
+    Initialize and return an AWS Textract client.
+    """
+    with open('aws_credentials.json', 'r') as f:
+        credentials = json.load(f)
+
     return boto3.client(
         'textract',
         region_name='us-east-1',
-        aws_access_key_id='AKIATCKATOWRRSB6E5P7',
-        aws_secret_access_key='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'
+        aws_access_key_id=credentials['aws_access_key_id'],
+        aws_secret_access_key=credentials['aws_secret_access_key']
     )
 
 
+
 def read_image_as_bytearray(image_path):
+    """
+    Read an image file and return it as a bytearray.
+    """
     with open(image_path, 'rb') as image:
         return bytearray(image.read())
 
 
 def extract_value(nutrient, tokens, index):
+    """
+    Extract value of a nutrient from tokens using regular expressions.
+    """
     if nutrient == 'energy_kj' or nutrient == 'energy_kcal':
         match = re.match(r'(\d+(\.\d+)?)(kj|kcal)/(\d+(\.\d+)?)(kj|kcal)', tokens[index + 1], re.IGNORECASE)
         if match:
@@ -63,7 +77,11 @@ def extract_value(nutrient, tokens, index):
 
 
 def extract_nutritional_info(text, response):
+    """
+    Extract nutritional information from Textract response.
+    """
     nutrient_keywords = {
+        # Nutrient keywords mapping to their corresponding nutrient names
         'energy_kj': ['energy', 'kj'],
         'energy_kcal': ['energy', 'kcal'],
         'Protein': ['protein'],
@@ -134,6 +152,9 @@ def extract_nutritional_info(text, response):
 
 
 def process_image(image_path):
+    """
+    Process an image to extract nutritional information.
+    """
     client = get_aws_client()
 
     with Image.open(image_path) as image:
