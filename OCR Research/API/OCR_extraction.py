@@ -3,8 +3,8 @@ import re
 import boto3
 import pandas as pd
 from PIL import Image
-import Levenshtein
 import pandas
+
 
 
 def get_aws_client():
@@ -20,7 +20,6 @@ def get_aws_client():
         aws_access_key_id=credentials['aws_access_key_id'],
         aws_secret_access_key=credentials['aws_secret_access_key']
     )
-
 
 
 def read_image_as_bytearray(image_path):
