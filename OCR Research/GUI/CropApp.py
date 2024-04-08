@@ -8,7 +8,21 @@ import customtkinter as ctk
 
 
 class CornerBox:
+    """
+    Class representing a draggable corner box used for cropping.
+    """
+
     def __init__(self, pos, canvas, c_height, c_width):
+        """
+        Initialize the corner box.
+
+        Args:
+            pos (str): Position of the corner box ('NW', 'NE', 'SE', 'SW').
+            canvas (tk.Canvas): Canvas where the corner box will be drawn.
+            c_height (int): Height of the canvas.
+            c_width (int): Width of the canvas.
+        """
+        # Set initial position of the corner box based on position argument
         if pos == 'NW':
             self.x, self.y = 5, 5
         elif pos == 'NE':
@@ -21,62 +35,108 @@ class CornerBox:
         self.c_height, self.c_width = c_height, c_width
         self.canvas = canvas
 
+        # Create the corner box rectangle
         self.cb_id = canvas.create_rectangle(
             self.x - 5, self.y - 5, self.x + 5, self.y + 5, fill="blue")
 
+        # Store initial position for resetting
         self.reset_x, self.reset_y = self.x, self.y
 
     def grab(self, event):
+        """
+        Callback function for when the corner box is clicked.
+        """
         widget = event.widget
         self.x = widget.canvasx(event.x)
         self.y = widget.canvasy(event.y)
         self.widget = self.cb_id
 
     def drag(self, event):
+        """
+        Callback function for when the corner box is dragged.
+        """
         widget = event.widget
         xc = widget.canvasx(event.x)
         yc = widget.canvasy(event.y)
         if xc < 5 or yc < 5 or xc > self.c_width - 5 or yc > self.c_height - 5:
             return
 
+        # Move the corner box
         self.canvas.move(self.widget, xc - self.x, yc - self.y)
         self.x, self.y = xc, yc
 
+        # Calculate new center coordinates of the corner box
         x1, y1, x2, y2 = self.canvas.coords(self.cb_id)
         self.x = (x1 + x2) / 2
         self.y = (y1 + y2) / 2
 
     @property
     def coords(self):
+        """
+        Get the coordinates of the corner box.
+
+        Returns:
+            tuple: (x, y) coordinates of the corner box.
+        """
         return (self.x, self.y)
 
     @property
     def id(self):
+        """
+        Get the ID of the corner box.
+
+        Returns:
+            int: ID of the corner box.
+        """
         return self.cb_id
 
     def reset(self):
+        """
+        Reset the position of the corner box to its initial position.
+        """
         xc, yc = self.reset_x, self.reset_y
         self.canvas.move(self.cb_id, xc - self.x, yc - self.y)
         self.x, self.y = xc, yc
 
+        # Calculate new center coordinates of the corner box
         x1, y1, x2, y2 = self.canvas.coords(self.cb_id)
         self.x = (x1 + x2) / 2
         self.y = (y1 + y2) / 2
 
     @coords.setter
     def coords(self, xc, yc):
+        """
+        Set the coordinates of the corner box.
+
+        Args:
+            xc (int): New x-coordinate.
+            yc (int): New y-coordinate.
+        """
         if xc < 5 or yc < 5 or xc > self.c_width - 5 or yc > self.c_height - 5:
             return
         self.canvas.move(self.cb_id, xc - self.x, yc - self.y)
         self.x, self.y = xc, yc
 
+        # Calculate new center coordinates of the corner box
         x1, y1, x2, y2 = self.canvas.coords(self.cb_id)
         self.x = (x1 + x2) / 2
         self.y = (y1 + y2) / 2
 
 
 class CropApp:
+    """
+    Class representing the main application for cropping images.
+    """
+
     def __init__(self, master, img, on_cropped):
+        """
+        Initialize the CropApp.
+
+        Args:
+            master: Parent widget.
+            img (str): Path to the image file to be cropped.
+            on_cropped (function): Callback function to handle cropped image.
+        """
         self.master = master
         self.on_cropped = on_cropped
 
@@ -142,11 +202,13 @@ class CropApp:
         self.img_canvas_img_id = self.canvas.create_image(
             5, 5, image=self.img_canvas, anchor=tk.NW)
 
+        # Create corner boxes for cropping
         self.NW = CornerBox('NW', self.canvas, self.c_height, self.c_width)
         self.NE = CornerBox('NE', self.canvas, self.c_height, self.c_width)
         self.SE = CornerBox('SE', self.canvas, self.c_height, self.c_width)
         self.SW = CornerBox('SW', self.canvas, self.c_height, self.c_width)
 
+        # Buttons for actions
         self.but_frame = tk.Frame(second_frame)
         self.but_frame.pack()
 
@@ -162,14 +224,17 @@ class CropApp:
             self.but_frame, text="Rotate", width=100, command=self.rotate_image)
         self.rotate_image_butt.pack(side=tk.LEFT, pady=5, padx=5)
 
+        # IDs for drawing the cropping box
         self.box_id = None
         self.p1_id = None
         self.p2_id = None
         self.p3_id = None
         self.p4_id = None
 
+        # Draw the initial cropping box
         self.drawBox()
 
+        # Bind events for corner box dragging
         for i in [self.NW, self.NE, self.SE, self.SW]:
             self.canvas.tag_bind(i.cb_id, "<Button-1>", i.grab)
             self.canvas.tag_bind(i.cb_id, "<B1-Motion>", i.drag)
@@ -178,12 +243,18 @@ class CropApp:
         print(self.NW.coords, self.NE.coords, self.SE.coords, self.SW.coords)
 
     def restCorners(self):
+        """
+        Reset the position of corner boxes.
+        """
         self.NW.reset()
         self.NE.reset()
         self.SE.reset()
         self.SW.reset()
 
     def rotate_image(self):
+        """
+        Rotate the image by 90 degrees and redraw the cropping box.
+        """
         self.im = self.im.rotate(90, expand=True)
         self.img_canvas = ImageTk.PhotoImage(self.im)
         self.canvas.itemconfig(self.img_canvas_img_id, image=self.img_canvas)
@@ -194,6 +265,9 @@ class CropApp:
         self.drawBox()
 
     def cropImage(self):
+        """
+        Crop the image based on the selected area and save it.
+        """
         A, B, C, D = self.NW.coords, self.NE.coords, self.SE.coords, self.SW.coords
         A = (A[0] * self.scale_factor, A[1] * self.scale_factor)
         B = (B[0] * self.scale_factor, B[1] * self.scale_factor)
@@ -226,14 +300,17 @@ class CropApp:
         self.res = cv2.warpPerspective(img, matrix, (maxWidth, maxHeight))
         resized_image = cv2.resize(
             self.res, (0, 0), fx=1 / self.scale_factor, fy=1 / self.scale_factor)
-        # cv2.imshow("Result", resized_image)
 
+        # Save the cropped image
         cropped_image_name = os.path.join(self.crop_directory,
                                           os.path.basename(self.img_file_name).replace('.', '_cropped.'))
         cv2.imwrite(cropped_image_name, self.res)
         self.on_cropped(cropped_image_name)
 
     def drawBox(self, event=None):
+        """
+        Draw the cropping box on the canvas.
+        """
         if self.box_id != None:
             self.canvas.delete(self.box_id)
         if self.p1_id != None:
@@ -245,6 +322,7 @@ class CropApp:
         if self.p4_id != None:
             self.canvas.delete(self.p4_id)
 
+        # Draw the cropping box
         self.box_id = self.canvas.create_line(
             *self.NW.coords,
             *self.NE.coords,
@@ -253,6 +331,7 @@ class CropApp:
             *self.NW.coords,
             fill="blue", width=2)
 
+        # Draw polygons to cover the cropped areas outside the box
         self.p1_id = self.canvas.create_polygon(
             0, 0, *self.NW.coords, *self.SW.coords, 0, self.c_height, fill="blue", stipple="gray25")
         self.p2_id = self.canvas.create_polygon(
@@ -269,12 +348,5 @@ class CropApp:
         self.canvas.tag_raise(self.SE.cb_id, 'all')
         self.canvas.tag_raise(self.SW.cb_id, 'all')
 
+        # Redraw the cropping box after a short delay
         self.canvas.after(1, self.drawBox)
-
-
-if __name__ == "__main__":
-    root = tk.Tk()
-    img_file_name = None
-    App = CropApp(root, img_file_name)
-
-    root.mainloop()
