@@ -1,26 +1,39 @@
+import json
 import re
 import boto3
 import pandas as pd
 from PIL import Image
-import Levenshtein
 import pandas
 
 
+
 def get_aws_client():
+    """
+    Initialize and return an AWS Textract client.
+    """
+    with open('aws_credentials.json', 'r') as f:
+        credentials = json.load(f)
+
     return boto3.client(
         'textract',
         region_name='us-east-1',
-        aws_access_key_id='AKIATCKATOWRRSB6E5P7',
-        aws_secret_access_key='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'
+        aws_access_key_id=credentials['aws_access_key_id'],
+        aws_secret_access_key=credentials['aws_secret_access_key']
     )
 
 
 def read_image_as_bytearray(image_path):
+    """
+    Read an image file and return it as a bytearray.
+    """
     with open(image_path, 'rb') as image:
         return bytearray(image.read())
 
 
 def extract_value(nutrient, tokens, index):
+    """
+    Extract value of a nutrient from tokens using regular expressions.
+    """
     if nutrient == 'energy_kj' or nutrient == 'energy_kcal':
         match = re.match(r'(\d+(\.\d+)?)(kj|kcal)/(\d+(\.\d+)?)(kj|kcal)', tokens[index + 1], re.IGNORECASE)
         if match:
@@ -63,51 +76,55 @@ def extract_value(nutrient, tokens, index):
 
 
 def extract_nutritional_info(text, response):
+    """
+    Extract nutritional information from Textract response.
+    """
     nutrient_keywords = {
+        # Nutrient keywords mapping to their corresponding nutrient names
         'energy_kj': ['energy', 'kj'],
         'energy_kcal': ['energy', 'kcal'],
-        'calories': ['calories'],
-        'protein': ['protein'],
-        'carbohydrates': ['carbohydrate', 'carb', 'carbohydrates'],
-        'sugar': ['sugars', 'sugar', 'sugar)', '(of which sugars)'],
-        'fat': ['fat', 'total fat'],
-        'saturated_fat': ['saturates', 'saturated', 'saturates)', '(of which saturates)'],
-        'monounsaturated_fat': ['monounsaturates'],
-        'polyunsaturated_fat': ['polyunsaturates'],
-        'cholesterol': ['cholesterol'],
-        'sodium': ['sodium'],
+        'Protein': ['protein'],
+        'Carbohydrates': ['carbohydrate', 'carb', 'carbohydrates'],
+        'Total Sugar': ['sugars', 'sugar', 'sugar)', '(of which sugars)'],
         'salt': ['salt'],
-        'potassium': ['potassium'],
-        'calcium': ['calcium'],
-        'magnesium': ['magnesium'],
-        'phosphorus': ['phosphorus'],
-        'fibre': ['fibre', 'fiber'],
-        'copper': ['copper'],
-        'zinc': ['zinc'],
-        'selenium': ['selenium'],
-        'iodine': ['iodine'],
-        'vitamin_A': ['vitamin a', 'a'],
-        'vitamin_B': ['vitamin b', 'b'],
-        'vitamin_C': ['vitamin c', 'c'],
-        'vitamin_D': ['vitamin d', 'd'],
-        'vitamin_E': ['vitamin e', 'e'],
-        'vitamin_K': ['vitamin k', 'k'],
-        'vitamin_B6': ['vitamin b6', 'b6', '(b6)'],
-        'vitamin_B12': ['vitamin b12', 'b12', '(b12)', 'cobalamin'],
-        'iron': ['iron'],
-        'retinol': ['retinol'],
-        'carotene': ['carotene'],
-        'thiamin': ['thiamin', 'b1', '(b1)'],
-        'riboflavin': ['riboflavin', 'b2', '(b2)'],
-        'tryptophan': ['tryptophan'],
-        'niacin': ['niacin', 'b3', '(b3)'],
-        'total_folate': ['total folate', 'folate', 'b9', '(b9)'],
-        'Natural_Folate': ['natural folate'],
-        'niacin_equivalent': ['niacin equivalent'],
-        'folic_acid': ['folic acid', 'b9', 'folic', '(b9)'],
-        'dietary_folate_equivalents': ['dietary folate equivalents'],
-        'pantothenate': ['pantothenate', 'pantothenic acid', 'pantothenic', '(b5)', 'b5'],
-        'biotin': ['biotin', '(b7)', 'b7']
+        'Fibre': ['fibre', 'fiber'],
+        'Fat': ['fat', 'total fat'],
+        'Saturated_fat': ['saturates', 'saturated', 'saturates)', '(of which saturates)'],
+        'Monounsaturated_fat': ['monounsaturates'],
+        'Polyunsaturated_fat': ['polyunsaturates'],
+        'n-6_poly': ['n-6 poly', 'n-6'],
+        'n-3_poly': ['n-3 poly', 'n-3'],
+        'Trans_fat': ['trans fats', 'trans fat'],
+        'Cholesterol': ['cholesterol'],
+        'total_vitamin_A': ['vitamin a', 'a'],
+        'Retinol': ['retinol'],
+        'Carotene': ['carotene'],
+        'Vitamin_D': ['vitamin d', 'd'],
+        'Vitamin_E': ['vitamin e', 'e'],
+        'Vitamin_K': ['vitamin k', 'k'],
+        'Thiamin': ['thiamin', 'b1', '(b1)'],
+        'Riboflavin': ['riboflavin', 'b2', '(b2)'],
+        'Tryptophan': ['tryptophan'],
+        'Niacin_equivalent': ['niacin equivalent', 'niacin', 'b3', '(b3)'],
+        'Vitamin_B6': ['vitamin b6', 'b6', '(b6)'],
+        'Vitamin_B12': ['vitamin b12', 'b12', '(b12)', 'cobalamin'],
+        'Total_folate': ['total folate', 'folate', 'b9', '(b9)'],
+        'Natural_folate': ['natural folate'],
+        'Folic_acid': ['folic acid', 'b9', 'folic', '(b9)'],
+        'Dietary_folate_equivalents': ['dietary folate equivalents'],
+        'Pantothenate': ['pantothenate', 'pantothenic acid', 'pantothenic', '(b5)', 'b5'],
+        'Biotin': ['biotin', '(b7)', 'b7'],
+        'Vitamin_C': ['vitamin c', 'c'],
+        'Sodium': ['sodium'],
+        'Potassium': ['potassium'],
+        'Calcium': ['calcium'],
+        'Magnesium': ['magnesium'],
+        'Phosphorus': ['phosphorus'],
+        'Iron': ['iron'],
+        'Copper': ['copper'],
+        'Zinc': ['zinc'],
+        'Selenium': ['selenium'],
+        'Iodine': ['iodine']
     }
 
     extracted_values = {nutrient: {'value': 0, 'confidence': 0} for nutrient in nutrient_keywords}
@@ -117,7 +134,6 @@ def extract_nutritional_info(text, response):
         line = line.lower()
         if any(keyword in line for nutrient, keywords in nutrient_keywords.items() for keyword in keywords):
             tokens = line.split()
-            print(tokens)
             for nutrient, keywords in nutrient_keywords.items():
                 for keyword in keywords:
                     if keyword in tokens:
@@ -135,6 +151,9 @@ def extract_nutritional_info(text, response):
 
 
 def process_image(image_path):
+    """
+    Process an image to extract nutritional information.
+    """
     client = get_aws_client()
 
     with Image.open(image_path) as image:
@@ -146,13 +165,12 @@ def process_image(image_path):
     for i, item in enumerate(response["Blocks"]):
         if item['BlockType'] == 'LINE':
             text = text + " " + item['Text']
-            confidence = item.get('Confidence', 0)
-            # print(f"Text: {item['Text']}, Confidence: {confidence}")
 
     result = extract_nutritional_info(text, response)
 
     df = pd.DataFrame(result).T
-    df.to_csv('nutritional_info.csv')
+    df.columns = ['Value', 'Confidence']
+    df.to_csv('nutritional_info.csv', index_label='Nutrient')
 
 
 if __name__ == "__main__":
