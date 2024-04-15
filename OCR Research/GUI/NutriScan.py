@@ -35,7 +35,6 @@ class NutriScanApp(TkinterDnD.Tk):
 
         container = ctk.CTkFrame(self)
         container.pack(fill="both", expand=True)
-
         self.frames = {}
 
         for F in (PageOne, PageTwo):
@@ -166,6 +165,8 @@ class PageOne(ctk.CTkFrame):
                 global img
                 img = Image.open(filepath)
 
+                self.controller.original_file_name = os.path.basename(filepath)
+
                 orientation_fixed = False
                 if hasattr(img, '_getexif'):
                     for orientation in ExifTags.TAGS.keys():
@@ -259,6 +260,7 @@ class CropPopup(ctk.CTkFrame):
     """
     Popup window for cropping the image.
     """
+
     def initialize_crop_app(self):
         """
         Initialize the CropApp for cropping the image.
@@ -288,6 +290,7 @@ class PageTwo(ctk.CTkFrame):
     """
     Second page of the application for displaying OCR-extracted data.
     """
+
     def initialize_OCR_extraction(self, img_file_path):
         """
         Initialize OCR extraction process.
@@ -366,7 +369,7 @@ class PageTwo(ctk.CTkFrame):
         page_2_label_1 = ctk.CTkLabel(self, text='NutriScan', width=30, font=my_font)
         page_2_label_1.pack()
 
-        back_img = tk.PhotoImage(file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/back.png")
+        back_img = tk.PhotoImage(file="./assets/back.png")
 
         prev_page_button = ctk.CTkButton(self, image=back_img, text='Back', width=20,
                                          command=lambda: controller.show_frame(PageOne))
@@ -375,8 +378,8 @@ class PageTwo(ctk.CTkFrame):
         treeview_button_frame = ctk.CTkFrame(self)
         treeview_button_frame.pack(side="right", padx=20, pady=20)
 
-        edit_img = tk.PhotoImage(file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/edit.png")
-        delete_img = tk.PhotoImage(file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/delete.png")
+        edit_img = tk.PhotoImage(file="./assets/edit.png")
+        delete_img = tk.PhotoImage(file="./assets/delete.png")
         edit_btn = ctk.CTkButton(treeview_button_frame, image=edit_img, text="Edit", command=self.edit)
         del_btn = ctk.CTkButton(treeview_button_frame, image=delete_img, text="Delete", command=self.delete)
         edit_btn.pack(side="top", padx=5, pady=5)
@@ -453,7 +456,8 @@ class PageTwo(ctk.CTkFrame):
                 messagebox.showerror("Error", "No image file selected.")
                 return
 
-            image_file_name = os.path.basename(self.controller.img_file_path)
+            image_file_name = self.controller.original_file_name
+            print(image_file_name)
 
             df = pd.read_csv('nutritional_info.csv')
             column_order = ['Food label'] + df['Nutrient'].drop_duplicates().tolist()
@@ -487,10 +491,10 @@ class PageTwo(ctk.CTkFrame):
         frame_buttons = ctk.CTkFrame(self)
         frame_buttons.pack(side="top", padx=5, pady=5)
 
-        export_img = tk.PhotoImage(file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/export.png")
-        append_img = tk.PhotoImage(file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/append.png")
+        export_img = tk.PhotoImage(file="./assets/export.png")
+        append_img = tk.PhotoImage(file="./assets/append.png")
         download_img = tk.PhotoImage(
-            file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/downloads.png")
+            file="./assets/downloads.png")
 
         export_csv_btn = ctk.CTkButton(frame_buttons, image=export_img, text="Export CSV", command=save_csv)
         export_csv_btn.pack(side="left", padx=5)

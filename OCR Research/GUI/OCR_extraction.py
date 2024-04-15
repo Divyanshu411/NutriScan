@@ -22,7 +22,6 @@ def get_aws_client():
     )
 
 
-
 def read_image_as_bytearray(image_path):
     """
     Read an image file and return it as a bytearray.

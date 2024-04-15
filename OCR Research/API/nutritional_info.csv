@@ -1,15 +1,4 @@
 Nutrient,Value,Confidence
-<<<<<<< HEAD
-energy_kj,390.0,65.85318756103516
-energy_kcal,93.0,65.85318756103516
-Protein,2.9,99.87324523925781
-Carbohydrates,10.0,99.95853424072266
-Total Sugar,8.9,99.87841796875
-salt,0.1,99.94004821777344
-Fibre,0.5,99.92935943603516
-Fat,4.6,99.90636444091797
-Saturated_fat,2.8,99.89875793457031
-=======
 energy_kj,2392.0,98.87519836425781
 energy_kcal,582.0,99.86579132080078
 Protein,0.5,99.9852066040039
@@ -19,7 +8,6 @@ salt,1.34,99.92121887207031
 Fibre,0.0,0.0
 Fat,63.0,99.9427261352539
 Saturated_fat,21.0,99.8501968383789
->>>>>>> origin/main
 Monounsaturated_fat,0.0,0.0
 Polyunsaturated_fat,0.0,0.0
 n-6_poly,0.0,0.0
