@@ -1,0 +1,10 @@
+{
+  "livePreview": false,
+  "readableLineLength": true,
+  "foldIndent": true,
+  "showLineNumber": false,
+  "autoConvertHtml": true,
+  "propertiesInDocument": "visible",
+  "alwaysUpdateLinks": true,
+  "promptDelete": false
+}
