@@ -1,6 +1,7 @@
 import csv
 import os
 import tempfile
+import threading
 import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
@@ -15,11 +16,16 @@ import sqlite3
 import customtkinter as ctk
 from tkinter import messagebox
 
+# Set appearance mode and color theme
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
 
 
 class NutriScanApp(TkinterDnD.Tk):
+    """
+    Application for extracting nutritional information from images.
+    """
+
     def __init__(self, *args, **kwargs):
         TkinterDnD.Tk.__init__(self, *args, **kwargs)
         self.state("zoomed")
@@ -29,7 +35,6 @@ class NutriScanApp(TkinterDnD.Tk):
 
         container = ctk.CTkFrame(self)
         container.pack(fill="both", expand=True)
-
         self.frames = {}
 
         for F in (PageOne, PageTwo):
@@ -40,6 +45,9 @@ class NutriScanApp(TkinterDnD.Tk):
         self.show_frame(PageOne)
 
     def show_frame(self, cont):
+        """
+        Show the frame corresponding to the given controller.
+        """
         for frame in self.frames.values():
             frame.pack_forget()
 
@@ -56,6 +64,9 @@ class NutriScanApp(TkinterDnD.Tk):
             self.popup_page_two()
 
     def popup_page_two(self):
+        """
+        Popup the second page.
+        """
         top = tk.Toplevel(self)
         top.title("Page Two Popup")
         top.state("zoomed")
@@ -65,10 +76,20 @@ class NutriScanApp(TkinterDnD.Tk):
 
 
 class PageOne(ctk.CTkFrame):
+    """
+    First page of the application for selecting and cropping images.
+    """
+
     def open_popup_page_two(self):
+        """
+        Open the popup for the second page.
+        """
         self.controller.popup_page_two()
 
     def update_image(self, cropped_image_path):
+        """
+        Update the displayed image.
+        """
         if not os.path.exists(cropped_image_path):
             print("Error: Cropped image file does not exist at:", cropped_image_path)
             return
@@ -120,58 +141,78 @@ class PageOne(ctk.CTkFrame):
         upload_file_button.pack(pady=10)
 
         def upload_file():
+            """
+            Upload the selected image
+            """
             f_types = [('Image Files', '*.png *.jpg *.jpeg')]
             filename = filedialog.askopenfilename(filetypes=f_types)
             if filename:
                 open_image(filename)
 
         def open_image(filepath):
-            filepath = filepath.strip('{}')
-            global img
-            img = Image.open(filepath)
+            """
+            Open the uploaded image
+            """
+            progress_bar = ctk.CTkProgressBar(self, mode='indeterminate')
+            progress_bar.pack(pady=10)
+            progress_bar.start()
 
-            orientation_fixed = False
-            if hasattr(img, '_getexif'):  # only present in JPEGs
-                for orientation in ExifTags.TAGS.keys():
-                    if ExifTags.TAGS[orientation] == 'Orientation':
-                        break
-                e = img._getexif()  # returns None if no EXIF data
-                if e is not None:
-                    exif = dict(e.items())
-                    if orientation in exif:
-                        orientation_fixed = True
-                        if exif[orientation] == 3:
-                            img = img.rotate(180, expand=True)
-                        elif exif[orientation] == 6:
-                            img = img.rotate(270, expand=True)
-                        elif exif[orientation] == 8:
-                            img = img.rotate(90, expand=True)
+            def process_image(filepath=filepath):
+                """
+                Process the uploaded image and fix the orientation and size of the image
+                """
+                filepath = filepath.strip('{}')
+                global img
+                img = Image.open(filepath)
 
-            # Save the original oriented image before resizing
-            if orientation_fixed:
-                temp_file = tempfile.NamedTemporaryFile(suffix='.png', delete=False)
-                temp_file_path = temp_file.name
-                img.save(temp_file_path)
-                original_img_file_path = temp_file_path
-            else:
-                original_img_file_path = filepath
+                self.controller.original_file_name = os.path.basename(filepath)
 
-            frame_width, frame_height = 600, 400
-            width_ratio = frame_width / img.width
-            height_ratio = frame_height / img.height
-            resize_ratio = min(width_ratio, height_ratio)
-            new_width = int(img.width * resize_ratio)
-            new_height = int(img.height * resize_ratio)
-            img = img.resize((new_width, new_height))
+                orientation_fixed = False
+                if hasattr(img, '_getexif'):
+                    for orientation in ExifTags.TAGS.keys():
+                        if ExifTags.TAGS[orientation] == 'Orientation':
+                            break
+                    e = img._getexif()
+                    if e is not None:
+                        exif = dict(e.items())
+                        if orientation in exif:
+                            orientation_fixed = True
+                            if exif[orientation] == 3:
+                                img = img.rotate(180, expand=True)
+                            elif exif[orientation] == 6:
+                                img = img.rotate(270, expand=True)
+                            elif exif[orientation] == 8:
+                                img = img.rotate(90, expand=True)
 
-            img = ImageTk.PhotoImage(img)
-            for widget in self.frame_image.winfo_children():
-                widget.destroy()
-            label = ctk.CTkLabel(self.frame_image, image=img, text="")
-            label.place(x=frame_width / 2 - new_width / 2, y=frame_height / 2 - new_height / 2)
-            label.lift()
-            controller.img_file_path = original_img_file_path  # Use the original oriented image
-            controller.show_frame(PageOne)
+                if orientation_fixed:
+                    temp_file = tempfile.NamedTemporaryFile(suffix='.png', delete=False)
+                    temp_file_path = temp_file.name
+                    img.save(temp_file_path)
+                    original_img_file_path = temp_file_path
+                else:
+                    original_img_file_path = filepath
+
+                frame_width, frame_height = 600, 400
+                width_ratio = frame_width / img.width
+                height_ratio = frame_height / img.height
+                resize_ratio = min(width_ratio, height_ratio)
+                new_width = int(img.width * resize_ratio)
+                new_height = int(img.height * resize_ratio)
+                img = img.resize((new_width, new_height))
+
+                img = ImageTk.PhotoImage(img)
+                for widget in self.frame_image.winfo_children():
+                    widget.destroy()
+                label = ctk.CTkLabel(self.frame_image, image=img, text="")
+                label.place(x=frame_width / 2 - new_width / 2, y=frame_height / 2 - new_height / 2)
+                label.lift()
+                controller.img_file_path = original_img_file_path
+                controller.show_frame(PageOne)
+
+                progress_bar.stop()
+                progress_bar.pack_forget()
+
+            threading.Thread(target=process_image).start()
 
         crop_button = ctk.CTkButton(self, text='Crop Image', width=20, command=self.open_crop_popup)
         crop_button.pack(pady=10)
@@ -184,24 +225,53 @@ class PageOne(ctk.CTkFrame):
         next_page_button.pack(pady=5)
 
     def open_crop_popup(self):
+        """
+        Open crop app popup if an image is selected.
+        """
         if not self.controller.img_file_path:
             messagebox.showerror("Error", "Please select an image first.")
         else:
             self.controller.popup_page_two()
 
     def next_page(self):
+        """
+        Proceed to the next page if an image is selected.
+        """
         if not self.controller.img_file_path:
             messagebox.showerror("Error", "Please select an image first.")
         else:
-            self.controller.show_frame(PageTwo)
+            self.progress_bar = ctk.CTkProgressBar(self, mode='indeterminate')
+            self.progress_bar.pack(pady=10)
+            self.progress_bar.start()
+
+            def ocr_extraction():
+                # Start the OCR extraction process
+                self.controller.frames[PageTwo].initialize_OCR_extraction(self.controller.img_file_path)
+
+                # Stop the progress bar and switch to the second page
+                self.progress_bar.stop()
+                self.progress_bar.pack_forget()
+                self.controller.show_frame(PageTwo)
+
+            threading.Thread(target=ocr_extraction).start()
 
 
 class CropPopup(ctk.CTkFrame):
+    """
+    Popup window for cropping the image.
+    """
+
     def initialize_crop_app(self):
+        """
+        Initialize the CropApp for cropping the image.
+        """
         if self.controller.img_file_path:
             self.crop_app = CropApp(self, self.controller.img_file_path, self.on_image_cropped)
 
     def on_image_cropped(self, cropped_image_path):
+        """
+        Handle image cropping event.
+        """
         self.controller.show_frame(PageOne)
         self.controller.frames[PageOne].update_image(cropped_image_path)
         self.controller.img_file_path = cropped_image_path
@@ -217,7 +287,14 @@ class CropPopup(ctk.CTkFrame):
 
 
 class PageTwo(ctk.CTkFrame):
+    """
+    Second page of the application for displaying OCR-extracted data.
+    """
+
     def initialize_OCR_extraction(self, img_file_path):
+        """
+        Initialize OCR extraction process.
+        """
         if self.controller.img_file_path:
             self.img_file_path = img_file_path
             self.process_image_result = process_image(self.controller.img_file_path)
@@ -225,6 +302,9 @@ class PageTwo(ctk.CTkFrame):
             self.display_image(img_file_path)
 
     def populate_treeview_from_csv(self):
+        """
+        Populate treeview with data from a CSV file.
+        """
         x = self.treeview.get_children()
         for item in x:
             self.treeview.delete(item)
@@ -241,6 +321,9 @@ class PageTwo(ctk.CTkFrame):
             print("CSV file not found.")
 
     def display_image(self, filename):
+        """
+        Display the image on the UI.
+        """
         self.img = Image.open(filename)
         frame_width, frame_height = 600, 400
         width_ratio = frame_width / self.img.width
@@ -255,7 +338,10 @@ class PageTwo(ctk.CTkFrame):
         self.label = ctk.CTkLabel(self.frame_image, image=self.img, text="")
         self.label.place(x=frame_width / 2 - new_width / 2, y=frame_height / 2 - new_height / 2)
 
-    def edit(self):
+    def edit(self, event=None):
+        """
+        Edit the selected item in the treeview.
+        """
         selected_item = self.treeview.selection()[0]
         nutrient_name = self.treeview.item(selected_item, 'values')[0]
         new_value = askstring("Edit Value", f"Enter new value for {nutrient_name}:")
@@ -265,6 +351,9 @@ class PageTwo(ctk.CTkFrame):
                 self.treeview.item(selected_item, 'values')[2]))
 
     def delete(self):
+        """
+        Delete the selected item from the treeview.
+        """
         selected_item = self.treeview.selection()[0]
         self.treeview.delete(selected_item)
 
@@ -280,16 +369,17 @@ class PageTwo(ctk.CTkFrame):
         page_2_label_1 = ctk.CTkLabel(self, text='NutriScan', width=30, font=my_font)
         page_2_label_1.pack()
 
-        back_img = tk.PhotoImage(file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/back.png")
+        back_img = tk.PhotoImage(file="./assets/back.png")
 
-        prev_page_button = ctk.CTkButton(self, image=back_img, text='Back', width=20, command=lambda: controller.show_frame(PageOne))
+        prev_page_button = ctk.CTkButton(self, image=back_img, text='Back', width=20,
+                                         command=lambda: controller.show_frame(PageOne))
         prev_page_button.pack(side="top", pady=10)
 
         treeview_button_frame = ctk.CTkFrame(self)
         treeview_button_frame.pack(side="right", padx=20, pady=20)
 
-        edit_img = tk.PhotoImage(file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/edit.png")
-        delete_img = tk.PhotoImage(file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/delete.png")
+        edit_img = tk.PhotoImage(file="./assets/edit.png")
+        delete_img = tk.PhotoImage(file="./assets/delete.png")
         edit_btn = ctk.CTkButton(treeview_button_frame, image=edit_img, text="Edit", command=self.edit)
         del_btn = ctk.CTkButton(treeview_button_frame, image=delete_img, text="Delete", command=self.delete)
         edit_btn.pack(side="top", padx=5, pady=5)
@@ -316,6 +406,8 @@ class PageTwo(ctk.CTkFrame):
         self.treeview.column('Column2', anchor=tk.CENTER)
         self.treeview.column('Column3', anchor=tk.CENTER)
 
+        self.treeview.bind("<Double-1>", self.edit)
+
         vsb = ctk.CTkScrollbar(frame_table, command=self.treeview.yview)
         self.treeview.configure(yscrollcommand=vsb.set)
 
@@ -323,6 +415,9 @@ class PageTwo(ctk.CTkFrame):
         vsb.pack(side="right", fill="y")
 
         def save_csv():
+            """
+            Save the treeview data to a CSV file.
+            """
             file_path = asksaveasfile(initialfile='Untitled.csv',
                                       defaultextension=".csv", filetypes=[("All files", "*.*"), ("csv", "*.csv")])
             if file_path:
@@ -338,6 +433,9 @@ class PageTwo(ctk.CTkFrame):
                     writer.writerows(data)
 
         def export_appended_csv():
+            """
+            Export appended data from SQLite database to a CSV file.
+            """
             conn = sqlite3.connect('nutrition_data.db')
 
             # Read the table into a DataFrame
@@ -351,11 +449,15 @@ class PageTwo(ctk.CTkFrame):
                 df.to_csv(file_path.name, index=False)
 
         def append_csv():
+            """
+            Append data to a CSV file and SQLite database.
+            """
             if self.controller.img_file_path is None:
                 messagebox.showerror("Error", "No image file selected.")
                 return
 
-            image_file_name = os.path.basename(self.controller.img_file_path)
+            image_file_name = self.controller.original_file_name
+            print(image_file_name)
 
             df = pd.read_csv('nutritional_info.csv')
             column_order = ['Food label'] + df['Nutrient'].drop_duplicates().tolist()
@@ -389,10 +491,10 @@ class PageTwo(ctk.CTkFrame):
         frame_buttons = ctk.CTkFrame(self)
         frame_buttons.pack(side="top", padx=5, pady=5)
 
-        export_img = tk.PhotoImage(file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/export.png")
-        append_img = tk.PhotoImage(file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/append.png")
+        export_img = tk.PhotoImage(file="./assets/export.png")
+        append_img = tk.PhotoImage(file="./assets/append.png")
         download_img = tk.PhotoImage(
-            file="D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/downloads.png")
+            file="./assets/downloads.png")
 
         export_csv_btn = ctk.CTkButton(frame_buttons, image=export_img, text="Export CSV", command=save_csv)
         export_csv_btn.pack(side="left", padx=5)
