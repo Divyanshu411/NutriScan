@@ -2,12 +2,12 @@
 
 NutriScan is a Tkinter-based application that leverages AWS Textract's state-of-the-art OCR tool to extract nutritional information from food labels and organizes them in a user-friendly table format.
 
-![[NutriScan Tutorial.mp4]]
+[NutriScan Tutorial Video](NutriScan%20Tutorial.mp4)
 
 ## Features
 
 ### Page 1: Image Selection and Editing
-![[Page 1.png]]
+![Page 1.png](Page%201.png)
 
 ![[CropApp.png]]
 - **Select File Button**: Enables users to select a food label image from their local file system.
@@ -20,7 +20,7 @@ NutriScan is a Tkinter-based application that leverages AWS Textract's state-of-
 - **Next Button**: Navigates to Page 2. Displays an error message if no image is selected.
 
 ### Page 2: Text Extraction & Data Management
-![[Page 2.png]]
+![Page 2.png](Page%202.png)
 - **Back Button**: Allows users to navigate back to Page 1.
 - **Image Frame**: Displays the selected or cropped image for reference.
 - **Table**: Displays the extracted text with columns for "Nutrient", "Value", and "Confidence Score". Highlights rows with a confidence score below 90 for attention. Values can be edited by double-clicking or using the edit button.
@@ -30,13 +30,15 @@ NutriScan is a Tkinter-based application that leverages AWS Textract's state-of-
 
 ## Installation
 
-1. **Clone the Repository**:
-    - Open your terminal or command prompt.
-    - Run the following command to clone the repository to your local machine:
-        ```
-        git clone <repository_url>
-        ```
-    Replace `<repository_url>` with the actual URL of your repository.
+1. **Download the Release Source Zip**:
+   - Navigate to the GitHub repository at https://github.com/Divyanshu411/comparing_ocr_tools/releases/tag/v1.0.0.
+   - Click and download "Source code (zip)" to download software.
+
+2. **Access the OCR Research GUI**:
+    - After downloading, extract the contents of the zip file to a convenient location on your system.
+    - Navigate to the extracted directory. 
+    - Head to the "_OCR research/GUI/dist_" directory within the extracted files.
+
 
 2. **Configure AWS Credentials**:
     - Locate the `aws_credential.json` file in the project directory.
