@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0cac1d3-eef6-4562-88c4-4db3d74cf9f9" name="Changes" comment="Removed unnecessary files">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/API/nutritional_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/API/nutritional_info.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/OCR_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/OCR_extraction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/nutrition_data.db" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/nutrition_data.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/nutritional_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/nutritional_info.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="d0cac1d3-eef6-4562-88c4-4db3d74cf9f9" name="Changes" comment="Removed unnecessary files" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +30,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="GUI" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -255,10 +252,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.NutriScan" />
-        <item itemvalue="Python.request" />
         <item itemvalue="Python.test" />
+        <item itemvalue="Python.request" />
+        <item itemvalue="Python.NutriScan" />
         <item itemvalue="Python.flask_app" />
+        <item itemvalue="Python.NutriScan" />
       </list>
     </recent_temporary>
   </component>
