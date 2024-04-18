@@ -3,6 +3,7 @@ import re
 import boto3
 import pandas as pd
 from PIL import Image
+import pandas
 
 
 
