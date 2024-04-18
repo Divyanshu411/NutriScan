@@ -40,7 +40,7 @@ information from food labels and organizes them in a user-friendly table format.
 ## Installation
 
 1. **Download the Release Source Zip**:
-    - Navigate to the GitHub repository at https://github.com/Divyanshu411/comparing_ocr_tools/releases/tag/v1.0.0.
+    - Navigate to the GitHub repository at [https://github.com/Divyanshu411/comparing_ocr_tools/releases/tag/v1.0.0](https://github.com/Divyanshu411/comparing_ocr_tools/releases).
     - Click and download "Source code (zip)" to download software.
 
 2. **Access the OCR Research GUI**:
