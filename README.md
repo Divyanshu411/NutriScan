@@ -59,7 +59,7 @@ information from food labels and organizes them in a user-friendly table format.
         2. **Create an IAM User**:
             - Watch a tutorial to learn how to create an IAM user with appropriate permissions.
         3. **Update Credentials**:
-            - Once you have the credentials, update the `aws_credential.json` file with the necessary information.
+            - Once you have the credentials, update the `aws_credential.json` file with the `access key` and `secret access key`.
 
 4. **Run Nutriscan**:
     - Execute the `Nutriscan.exe` file.
