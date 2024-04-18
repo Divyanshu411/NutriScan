@@ -11,7 +11,7 @@ information from food labels and organizes them in a user-friendly table format.
 
 ![Page 1.png](Media%2FPage%201.png)
 
-![[CropApp.png]]
+![CropApp.png](Media%2FCropApp.png)
 
 - **Select File Button**: Enables users to select a food label image from their local file system.
 - **Drag & Drop Area**: Users can conveniently drag and drop their image into this area.
@@ -40,7 +40,7 @@ information from food labels and organizes them in a user-friendly table format.
 ## Installation
 
 1. **Download the Release Source Zip**:
-    - Navigate to the GitHub repository at https://github.com/Divyanshu411/comparing_ocr_tools/releases/tag/v1.0.0.
+    - Navigate to the GitHub repository at https://github.com/Divyanshu411/comparing_ocr_tools/releases.
     - Click and download "Source code (zip)" to download software.
 
 2. **Access the OCR Research GUI**:
@@ -51,11 +51,10 @@ information from food labels and organizes them in a user-friendly table format.
 3. **Configure AWS Credentials**:
     - Locate the `aws_credential.json` file in the project directory.
     - Edit this file with your own AWS credentials.
-    - If you don’t have AWS credentials yet, follow these steps or
-      this [Youtube video](https://youtu.be/HuE-QhrmE1c?si=k-rbtrisN9MgXoKV) :
+    - If you don’t have AWS credentials yet, follow these steps or this video:
         1. **Create an AWS Account**:
             - Visit AWS Signup and create an account using
-              this [link](https://portal.aws.amazon.com/billing/signup?type=enterprise#/start/email).
+              this Video.
         2. **Create an IAM User**:
             - Watch a tutorial to learn how to create an IAM user with appropriate permissions.
         3. **Update Credentials**:

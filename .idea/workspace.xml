@@ -5,16 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0cac1d3-eef6-4562-88c4-4db3d74cf9f9" name="Changes" comment="Removed unnecessary files">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/OCR Research.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OCR Research.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.obsidian/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/.obsidian/app.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.obsidian/appearance.json" beforeDir="false" afterPath="$PROJECT_DIR$/.obsidian/appearance.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.obsidian/core-plugins-migration.json" beforeDir="false" afterPath="$PROJECT_DIR$/.obsidian/core-plugins-migration.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.obsidian/core-plugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/.obsidian/core-plugins.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.obsidian/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/.obsidian/workspace.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CropApp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NutriScan Tutorial.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Page 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Page 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/API/OCR_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/API/OCR_extraction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.spec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/OCR_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/OCR_extraction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Analysis-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/EXE-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/NutriScan.pkg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PKG-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PYZ-00.pyz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PYZ-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-00.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-01.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-02.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/base_library.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/generated-6824890c9ab194fc24e20aee4229cdf113355f10f07b638c2f5b1c6b48d68716.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/warn-NutriScan.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/xref-NutriScan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/NutriScan.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/assets/Nutriscan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/assets/append.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/assets/back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/assets/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/assets/downloads.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/assets/edit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/assets/export.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/aws_credentials.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/nutrition_data.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/nutritional_info.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/nutritional_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/nutritional_info.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/get-pip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/request.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,7 +171,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Documents/College/Year 3/REPO/Backup/OCR Research - 1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Documents/College/Year 3/OCR Research/.venv&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -170,6 +198,29 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.NutriScan">
+    <configuration name="CropApp" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="OCR Research" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/OCR Research/GUI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OCR Research/GUI/CropApp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="NutriScan" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="OCR Research" />
       <option name="ENV_FILES" value="" />
@@ -264,11 +315,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.NutriScan" />
+        <item itemvalue="Python.CropApp" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.request" />
-        <item itemvalue="Python.NutriScan" />
         <item itemvalue="Python.flask_app" />
-        <item itemvalue="Python.NutriScan" />
       </list>
     </recent_temporary>
   </component>
@@ -342,6 +393,11 @@
       <workItem from="1712832697642" duration="821000" />
       <workItem from="1712839986913" duration="149000" />
       <workItem from="1713270173684" duration="959000" />
+      <workItem from="1713446827429" duration="983000" />
+      <workItem from="1713447828419" duration="1264000" />
+      <workItem from="1713449166710" duration="1803000" />
+      <workItem from="1713451505962" duration="300000" />
+      <workItem from="1713452413317" duration="3251000" />
     </task>
     <task id="LOCAL-00001" summary="Added dictionaries for variables, extracted data from food labels, and stored in tables">
       <option name="closed" value="true" />
@@ -550,7 +606,7 @@
     <SUITE FILE_PATH="coverage/OCR_Research$tesseract_accuracy_test_2.coverage" NAME="tesseract_accuracy_test_2 Coverage Results" MODIFIED="1707849060814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tesseract-OCR/Case 2" />
     <SUITE FILE_PATH="coverage/OCR_Research$aws_accuracy_test_3.coverage" NAME="aws_accuracy_test-3 Coverage Results" MODIFIED="1710182240155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/aws_textract/Case 3" />
     <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_test3.coverage" NAME="dictonaries_test3 Coverage Results" MODIFIED="1708365090071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
-    <SUITE FILE_PATH="coverage/OCR_Research$CropApp.coverage" NAME="CropApp Coverage Results" MODIFIED="1710845934050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/GUI" />
+    <SUITE FILE_PATH="coverage/OCR_Research$CropApp.coverage" NAME="CropApp Coverage Results" MODIFIED="1713453268992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/GUI" />
     <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_levenshtein.coverage" NAME="dictonaries_levenshtein Coverage Results" MODIFIED="1710339490586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
     <SUITE FILE_PATH="coverage/OCR_Research$google_accuracy_test_2.coverage" NAME="google_accuracy_test-2 Coverage Results" MODIFIED="1707849035382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Google Vision/Case 2" />
     <SUITE FILE_PATH="coverage/OCR_Research$azure_accuracy_test_2.coverage" NAME="azure_accuracy_test-2 Coverage Results" MODIFIED="1707849005156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Azure/Case 2" />
@@ -573,12 +629,12 @@
     <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_test9_line_by_line.coverage" NAME="dictonaries_test9_line_by_line Coverage Results" MODIFIED="1708530789072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
     <SUITE FILE_PATH="coverage/OCR_Research$google_char_frequency.coverage" NAME="google_char_frequency Coverage Results" MODIFIED="1707824230033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Google Vision" />
     <SUITE FILE_PATH="coverage/OCR_Research$tesseract_tokenization.coverage" NAME="tesseract_tokenization Coverage Results" MODIFIED="1707994688508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tesseract-OCR" />
-    <SUITE FILE_PATH="coverage/OCR_Research$NutriScan.coverage" NAME="NutriScan Coverage Results" MODIFIED="1712840012820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/GUI" />
+    <SUITE FILE_PATH="coverage/OCR_Research$NutriScan.coverage" NAME="NutriScan Coverage Results" MODIFIED="1713453288078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/GUI" />
     <SUITE FILE_PATH="coverage/OCR_Research$azure_levenshtein.coverage" NAME="azure_levenshtein Coverage Results" MODIFIED="1707839959734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Azure" />
     <SUITE FILE_PATH="coverage/OCR_Research$test_api.coverage" NAME="test_api Coverage Results" MODIFIED="1712153736127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/API" />
     <SUITE FILE_PATH="coverage/OCR_Research$test.coverage" NAME="test Coverage Results" MODIFIED="1712766387775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/GUI" />
-    <SUITE FILE_PATH="coverage/OCR_Research$OCR_extraction.coverage" NAME="OCR_extraction Coverage Results" MODIFIED="1712571264814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/GUI" />
     <SUITE FILE_PATH="coverage/OCR_Research$tesseract_levenshtein_comparison.coverage" NAME="tesseract_levenshtein_comparison Coverage Results" MODIFIED="1707999931107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tesseract-OCR" />
+    <SUITE FILE_PATH="coverage/OCR_Research$OCR_extraction.coverage" NAME="OCR_extraction Coverage Results" MODIFIED="1713447265108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/GUI" />
     <SUITE FILE_PATH="coverage/OCR_Research$tesseract_char_frequency.coverage" NAME="tesseract_char_frequency Coverage Results" MODIFIED="1707824972474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tesseract-OCR" />
     <SUITE FILE_PATH="coverage/OCR_Research$flask_app.coverage" NAME="flask_app Coverage Results" MODIFIED="1712760092452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/API" />
     <SUITE FILE_PATH="coverage/OCR_Research$azure_test.coverage" NAME="azure_test Coverage Results" MODIFIED="1707839860646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Azure" />
