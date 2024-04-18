@@ -4,46 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0cac1d3-eef6-4562-88c4-4db3d74cf9f9" name="Changes" comment="Removed unnecessary files">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/OCR Research.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OCR Research.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d0cac1d3-eef6-4562-88c4-4db3d74cf9f9" name="Changes" comment="Version 1.0.0 release">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.obsidian/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/.obsidian/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.obsidian/appearance.json" beforeDir="false" afterPath="$PROJECT_DIR$/.obsidian/appearance.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.obsidian/core-plugins-migration.json" beforeDir="false" afterPath="$PROJECT_DIR$/.obsidian/core-plugins-migration.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.obsidian/core-plugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/.obsidian/core-plugins.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/API/OCR_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/API/OCR_extraction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.spec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/OCR_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/OCR_extraction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Analysis-00.toc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/EXE-00.toc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/NutriScan.pkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PKG-00.toc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PYZ-00.pyz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PYZ-00.toc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-00.toc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-01.toc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-02.toc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/base_library.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/generated-6824890c9ab194fc24e20aee4229cdf113355f10f07b638c2f5b1c6b48d68716.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/warn-NutriScan.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/xref-NutriScan.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/NutriScan.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/assets/Nutriscan.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/assets/append.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/assets/back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/assets/delete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/assets/downloads.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/assets/edit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/assets/export.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/aws_credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/nutrition_data.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/nutritional_info.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/nutritional_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/nutritional_info.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/get-pip.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/request.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/assets/Nutriscan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/assets/append.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/assets/back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/assets/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/assets/downloads.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/assets/edit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/assets/export.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/aws_credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/dist/aws_credentials.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -397,7 +367,7 @@
       <workItem from="1713447828419" duration="1264000" />
       <workItem from="1713449166710" duration="1803000" />
       <workItem from="1713451505962" duration="300000" />
-      <workItem from="1713452413317" duration="3251000" />
+      <workItem from="1713452413317" duration="4329000" />
     </task>
     <task id="LOCAL-00001" summary="Added dictionaries for variables, extracted data from food labels, and stored in tables">
       <option name="closed" value="true" />
@@ -527,7 +497,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712577067114</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Version 1.0.0 release">
+      <option name="closed" value="true" />
+      <created>1713456696790</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713456696790</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +537,8 @@
     <MESSAGE value="Implemented cropping functionality within a popup window, enabling full-screen zoom in the tkinter window. Also, incorporated an image frame alongside the extracted data table." />
     <MESSAGE value="Enhanced functionality: Saved cropped image for nutritional data extraction, Fixed drag and drop feature, Improved treeview update on new image upload." />
     <MESSAGE value="Removed unnecessary files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed unnecessary files" />
+    <MESSAGE value="Version 1.0.0 release" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 1.0.0 release" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
