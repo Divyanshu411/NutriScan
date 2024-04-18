@@ -8,3 +8,5 @@
 /dataSources.local.xml
 OCR Research/API/aws_credentials.json
 OCR Research/GUI/package.json
+OCR Research/GUI/build
+OCR Research/API

@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0cac1d3-eef6-4562-88c4-4db3d74cf9f9" name="Changes" comment="Version 1.0.0 release">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/assets/Nutriscan.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/assets/append.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/assets/back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/assets/delete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/assets/downloads.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/assets/edit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/assets/export.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/aws_credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/dist/aws_credentials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -368,6 +360,7 @@
       <workItem from="1713449166710" duration="1803000" />
       <workItem from="1713451505962" duration="300000" />
       <workItem from="1713452413317" duration="4329000" />
+      <workItem from="1713461013170" duration="44000" />
     </task>
     <task id="LOCAL-00001" summary="Added dictionaries for variables, extracted data from food labels, and stored in tables">
       <option name="closed" value="true" />
