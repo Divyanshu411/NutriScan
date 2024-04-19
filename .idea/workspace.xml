@@ -5,47 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0cac1d3-eef6-4562-88c4-4db3d74cf9f9" name="Changes" comment="Removed unnecessary files">
-      <change afterPath="$PROJECT_DIR$/OCR Research/GUI/assets/Nutriscan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR Research/GUI/assets/append.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR Research/GUI/assets/back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR Research/GUI/assets/delete.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR Research/GUI/assets/downloads.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR Research/GUI/assets/edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR Research/GUI/assets/export.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/NutriScan.pkg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/generated-6824890c9ab194fc24e20aee4229cdf113355f10f07b638c2f5b1c6b48d68716.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR Research/GUI/dist/NutriScan.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR Research/GUI/dist/nutrition_data.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR Research/get-pip.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OCR Research/request.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/OCR Research.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OCR Research.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.obsidian/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/.obsidian/workspace.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/.idea/OCR Research.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/.idea/OCR Research.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/API/OCR_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/API/OCR_extraction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/API/flask_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/API/flask_app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/API/nutritional_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/API/nutritional_info.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/CropApp.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/CropApp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.spec" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.spec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/OCR_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/OCR_extraction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/aws_credentials.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Analysis-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/EXE-00.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/NutriScan.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/NutriScan.pkg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PKG-00.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PYZ-00.pyz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PYZ-00.toc" afterDir="false" />
@@ -53,13 +20,13 @@
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-01.toc" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-01.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-02.toc" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-02.toc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/base_library.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/generated-6824890c9ab194fc24e20aee4229cdf113355f10f07b638c2f5b1c6b48d68716.ico" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/warn-NutriScan.txt" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/warn-NutriScan.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/xref-NutriScan.html" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/xref-NutriScan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/NutriScan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/dist/NutriScan.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/aws_credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/dist/aws_credentials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/nutrition_data.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/nutritional_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/dist/nutritional_info.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/hook-tkinterdnd2.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/hook-tkinterdnd2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/nutritional_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/nutritional_info.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,87 +83,87 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.CropApp.executor": "Run",
-    "Python.NutriScan.executor": "Run",
-    "Python.OCR_extraction.executor": "Run",
-    "Python.alphabet_frequency.executor": "Run",
-    "Python.aws_accuracy_test-2.executor": "Run",
-    "Python.aws_accuracy_test-3.executor": "Run",
-    "Python.aws_accuracy_test.executor": "Run",
-    "Python.aws_line_token_test.executor": "Run",
-    "Python.aws_test.executor": "Run",
-    "Python.aws_test2.executor": "Run",
-    "Python.azure_accuracy_test-2.executor": "Run",
-    "Python.azure_accuracy_test-3.executor": "Run",
-    "Python.azure_accuracy_test.executor": "Run",
-    "Python.azure_character.executor": "Run",
-    "Python.azure_levenshtein.executor": "Run",
-    "Python.azure_test.executor": "Run",
-    "Python.azure_test2.executor": "Run",
-    "Python.azure_tokenization.executor": "Run",
-    "Python.combine comparison.executor": "Run",
-    "Python.combine_comparison.executor": "Run",
-    "Python.dictonaries_levenshtein.executor": "Debug",
-    "Python.dictonaries_multiple_images.executor": "Run",
-    "Python.dictonaries_multiple_images2.executor": "Run",
-    "Python.dictonaries_test.executor": "Run",
-    "Python.dictonaries_test10_levenshtein.executor": "Run",
-    "Python.dictonaries_test11_multiple_images.executor": "Run",
-    "Python.dictonaries_test2.executor": "Run",
-    "Python.dictonaries_test3.executor": "Run",
-    "Python.dictonaries_test4.executor": "Run",
-    "Python.dictonaries_test5_single_line.executor": "Run",
-    "Python.dictonaries_test6_energy.executor": "Run",
-    "Python.dictonaries_test7_df.executor": "Run",
-    "Python.dictonaries_test7_energy2.executor": "Run",
-    "Python.dictonaries_test8_line_by_line.executor": "Run",
-    "Python.dictonaries_test9_line_by_line.executor": "Run",
-    "Python.flask_app.executor": "Run",
-    "Python.google tokenization.executor": "Run",
-    "Python.google_accuracy_test-2.executor": "Run",
-    "Python.google_accuracy_test-3.executor": "Run",
-    "Python.google_accuracy_test.executor": "Run",
-    "Python.google_char_frequency.executor": "Run",
-    "Python.google_levenshtein_comparison.executor": "Run",
-    "Python.google_ocr_test.executor": "Run",
-    "Python.levenshtein_comparison.executor": "Run",
-    "Python.opencv_text.executor": "Run",
-    "Python.read_folder_images.executor": "Run",
-    "Python.request.executor": "Run",
-    "Python.table_extraction.executor": "Run",
-    "Python.table_test.executor": "Run",
-    "Python.tesseract_accuracy_test-3.executor": "Run",
-    "Python.tesseract_accuracy_test.executor": "Run",
-    "Python.tesseract_accuracy_test_2.executor": "Run",
-    "Python.tesseract_bleu_score.executor": "Run",
-    "Python.tesseract_char_frequency.executor": "Run",
-    "Python.tesseract_comparison.executor": "Debug",
-    "Python.tesseract_levenshtein_comparison.executor": "Run",
-    "Python.tesseract_line_tokenization.executor": "Run",
-    "Python.tesseract_tokenization.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.test2.executor": "Run",
-    "Python.tkinter_skeleton.executor": "Run",
-    "Python.tkinter_test.executor": "Run",
-    "Python.tokenization-2.executor": "Run",
-    "Python.tokenization.executor": "Run",
-    "Python.treeview_test.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "Merging main",
-    "last_opened_file_path": "D:/Documents/College/Year 3/REPO/Backup/OCR Research - 1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.CropApp.executor&quot;: &quot;Run&quot;,
+    &quot;Python.NutriScan.executor&quot;: &quot;Run&quot;,
+    &quot;Python.OCR_extraction.executor&quot;: &quot;Run&quot;,
+    &quot;Python.alphabet_frequency.executor&quot;: &quot;Run&quot;,
+    &quot;Python.aws_accuracy_test-2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.aws_accuracy_test-3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.aws_accuracy_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.aws_line_token_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.aws_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.aws_test2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_accuracy_test-2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_accuracy_test-3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_accuracy_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_character.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_levenshtein.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_test2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.azure_tokenization.executor&quot;: &quot;Run&quot;,
+    &quot;Python.combine comparison.executor&quot;: &quot;Run&quot;,
+    &quot;Python.combine_comparison.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_levenshtein.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.dictonaries_multiple_images.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_multiple_images2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test10_levenshtein.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test11_multiple_images.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test5_single_line.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test6_energy.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test7_df.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test7_energy2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test8_line_by_line.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dictonaries_test9_line_by_line.executor&quot;: &quot;Run&quot;,
+    &quot;Python.flask_app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.google tokenization.executor&quot;: &quot;Run&quot;,
+    &quot;Python.google_accuracy_test-2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.google_accuracy_test-3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.google_accuracy_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.google_char_frequency.executor&quot;: &quot;Run&quot;,
+    &quot;Python.google_levenshtein_comparison.executor&quot;: &quot;Run&quot;,
+    &quot;Python.google_ocr_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.levenshtein_comparison.executor&quot;: &quot;Run&quot;,
+    &quot;Python.opencv_text.executor&quot;: &quot;Run&quot;,
+    &quot;Python.read_folder_images.executor&quot;: &quot;Run&quot;,
+    &quot;Python.request.executor&quot;: &quot;Run&quot;,
+    &quot;Python.table_extraction.executor&quot;: &quot;Run&quot;,
+    &quot;Python.table_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_accuracy_test-3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_accuracy_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_accuracy_test_2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_bleu_score.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_char_frequency.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_comparison.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.tesseract_levenshtein_comparison.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_line_tokenization.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tesseract_tokenization.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tkinter_skeleton.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tkinter_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tokenization-2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tokenization.executor&quot;: &quot;Run&quot;,
+    &quot;Python.treeview_test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Documents/College/Year 3/REPO/Backup/OCR Research - 1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\College\Year 3\OCR Research\OCR Research\GUI" />
@@ -387,6 +354,8 @@
       <workItem from="1712839986913" duration="149000" />
       <workItem from="1713270173684" duration="959000" />
       <workItem from="1713463385668" duration="77000" />
+      <workItem from="1713526439932" duration="71000" />
+      <workItem from="1713526896445" duration="208000" />
     </task>
     <task id="LOCAL-00001" summary="Added dictionaries for variables, extracted data from food labels, and stored in tables">
       <option name="closed" value="true" />
