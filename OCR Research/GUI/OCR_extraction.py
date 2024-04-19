@@ -3,8 +3,6 @@ import re
 import boto3
 import pandas as pd
 from PIL import Image
-import Levenshtein
-import pandas
 
 
 def get_aws_client():
