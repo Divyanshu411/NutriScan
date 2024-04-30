@@ -8,25 +8,19 @@
       <change beforePath="$PROJECT_DIR$/.idea/OCR Research.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OCR Research.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.spec" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.spec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/OCR_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/OCR_extraction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Analysis-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Analysis-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/EXE-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/EXE-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/NutriScan.pkg" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/NutriScan.pkg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PKG-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PKG-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PYZ-00.pyz" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PYZ-00.pyz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PYZ-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/PYZ-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-00.toc" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-00.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-01.toc" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-01.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-02.toc" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/Tree-02.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/base_library.zip" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/base_library.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/generated-6824890c9ab194fc24e20aee4229cdf113355f10f07b638c2f5b1c6b48d68716.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/warn-NutriScan.txt" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/warn-NutriScan.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/xref-NutriScan.html" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/build/NutriScan/xref-NutriScan.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/NutriScan.exe" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/dist/NutriScan.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/aws_credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/dist/aws_credentials.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/nutrition_data.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/dist/nutritional_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/dist/nutritional_info.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Media/NutriScan Tutorial.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/NutriScan.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/assets/append.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/assets/back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/assets/delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/assets/downloads.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/assets/edit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/assets/export.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/aws_credentials.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/nutrition_data.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/nutritional_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/nutritional_info.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +148,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Documents/College/Year 3/REPO/Backup/OCR Research - 1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Documents/College/Year 3/OCR Research/OCR Research/GUI/assets/downloads.png&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -275,9 +269,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.NutriScan" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.request" />
-        <item itemvalue="Python.NutriScan" />
         <item itemvalue="Python.flask_app" />
         <item itemvalue="Python.NutriScan" />
       </list>
@@ -356,6 +350,14 @@
       <workItem from="1713463385668" duration="77000" />
       <workItem from="1713526439932" duration="71000" />
       <workItem from="1713526896445" duration="208000" />
+      <workItem from="1714337858380" duration="666000" />
+      <workItem from="1714338538096" duration="391000" />
+      <workItem from="1714339726147" duration="2930000" />
+      <workItem from="1714342910947" duration="849000" />
+      <workItem from="1714390749361" duration="19000" />
+      <workItem from="1714484387722" duration="2290000" />
+      <workItem from="1714492340574" duration="194000" />
+      <workItem from="1714492570396" duration="4657000" />
     </task>
     <task id="LOCAL-00001" summary="Added dictionaries for variables, extracted data from food labels, and stored in tables">
       <option name="closed" value="true" />
@@ -587,7 +589,7 @@
     <SUITE FILE_PATH="coverage/OCR_Research$dictonaries_test9_line_by_line.coverage" NAME="dictonaries_test9_line_by_line Coverage Results" MODIFIED="1708530789072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/Prompting" />
     <SUITE FILE_PATH="coverage/OCR_Research$google_char_frequency.coverage" NAME="google_char_frequency Coverage Results" MODIFIED="1707824230033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Google Vision" />
     <SUITE FILE_PATH="coverage/OCR_Research$tesseract_tokenization.coverage" NAME="tesseract_tokenization Coverage Results" MODIFIED="1707994688508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tesseract-OCR" />
-    <SUITE FILE_PATH="coverage/OCR_Research$NutriScan.coverage" NAME="NutriScan Coverage Results" MODIFIED="1712840012820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/GUI" />
+    <SUITE FILE_PATH="coverage/OCR_Research$NutriScan.coverage" NAME="NutriScan Coverage Results" MODIFIED="1714497150084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/GUI" />
     <SUITE FILE_PATH="coverage/OCR_Research$azure_levenshtein.coverage" NAME="azure_levenshtein Coverage Results" MODIFIED="1707839959734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Azure" />
     <SUITE FILE_PATH="coverage/OCR_Research$test_api.coverage" NAME="test_api Coverage Results" MODIFIED="1712153736127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/API" />
     <SUITE FILE_PATH="coverage/OCR_Research$test.coverage" NAME="test Coverage Results" MODIFIED="1712766387775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCR Research/GUI" />
