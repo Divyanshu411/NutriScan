@@ -15,10 +15,13 @@ from tkinter.filedialog import asksaveasfile
 import sqlite3
 import customtkinter as ctk
 from tkinter import messagebox
+import warnings
 
 # Set appearance mode and color theme
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
+warnings.filterwarnings("ignore", category=UserWarning)
+warnings.filterwarnings("ignore", ".*CTk.*Warning: Given image is not CTkImage.*")
 
 
 class NutriScanApp(TkinterDnD.Tk):
@@ -32,6 +35,8 @@ class NutriScanApp(TkinterDnD.Tk):
         self.title('NutriScan')
         self.img_file_path = None
         self.cropped_image_path = None
+
+        self.minsize(800, 800)
 
         container = ctk.CTkFrame(self)
         container.pack(fill="both", expand=True)
@@ -459,9 +464,20 @@ class PageTwo(ctk.CTkFrame):
             image_file_name = self.controller.original_file_name
             print(image_file_name)
 
+            data = []
+            for child in self.treeview.get_children():
+                values = self.treeview.item(child, 'values')
+                data.append(values)
+
+            with open('nutritional_info.csv', 'w', newline='') as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerow(['Nutrient', 'Value', 'Confidence Score'])
+                writer.writerows(data)
+
             df = pd.read_csv('nutritional_info.csv')
             column_order = ['Food label'] + df['Nutrient'].drop_duplicates().tolist()
-            df = df.drop(columns=['Confidence'])
+            if 'Confidence' in df.columns:
+                df = df.drop(columns=['Confidence'])
 
             df['Food label'] = image_file_name
 
@@ -479,11 +495,19 @@ class PageTwo(ctk.CTkFrame):
             query = f"SELECT * FROM nutrition_table WHERE `Food label` = '{image_file_name}'"
             existing_df = pd.read_sql_query(query, conn)
 
-            if existing_df.empty:
+            if not existing_df.empty:
+                # Convert both dataframes to the same data type before comparison
+                existing_df = existing_df.astype(str)
+                df = df.astype(str)
+
+                if existing_df.equals(df):
+                    messagebox.showwarning("Warning", "Data for this food label already exists in the CSV.")
+                else:
+                    df.to_sql('nutrition_table', conn, if_exists='append', index=False)
+                    messagebox.showinfo("Success", "Data appended to CSV successfully!")
+            else:
                 df.to_sql('nutrition_table', conn, if_exists='append', index=False)
                 messagebox.showinfo("Success", "Data appended to CSV successfully!")
-            else:
-                messagebox.showwarning("Warning", "Data for this food label already exists in the CSV.")
 
             cur.close()
             conn.close()
@@ -493,8 +517,7 @@ class PageTwo(ctk.CTkFrame):
 
         export_img = tk.PhotoImage(file="./assets/export.png")
         append_img = tk.PhotoImage(file="./assets/append.png")
-        download_img = tk.PhotoImage(
-            file="./assets/downloads.png")
+        download_img = tk.PhotoImage(file="./assets/downloads.png")
 
         export_csv_btn = ctk.CTkButton(frame_buttons, image=export_img, text="Export CSV", command=save_csv)
         export_csv_btn.pack(side="left", padx=5)
