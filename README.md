@@ -4,7 +4,7 @@ NutriScan is a Tkinter-based application that leverages AWS Textract's state-of-
 information from food labels and organizes them in a user-friendly table format.
 
 ## Download: 
-Follow this link to download the application: [Google Drive Link](https://drive.google.com/file/d/1UGcqTdlbinNUFiV9jisqbgLpP2Z-E_HO/view?usp=drive_link)
+Follow this link to download the application: [Google Drive Link](https://drive.google.com/file/d/1DFdMX7OgzXMY5H9Ra-4BL3bN8GaIELbT/view?usp=sharing)
 
 ## Installation Tutorial
 Check out this tutorial for installation: [NutriScan Tutorial](https://youtu.be/y7LY0yAqaro)
@@ -44,7 +44,7 @@ Check out this tutorial for installation: [NutriScan Tutorial](https://youtu.be/
 ## Installation
 
 1. **Download the zip file**:
-    - If you haven't already, navigate to the [Google Drive link](https://drive.google.com/file/d/1UGcqTdlbinNUFiV9jisqbgLpP2Z-E_HO/view?usp=drive_link) provided above and download `Nutriscan.zip`.
+    - If you haven't already, navigate to the [Google Drive link](https://drive.google.com/file/d/1DFdMX7OgzXMY5H9Ra-4BL3bN8GaIELbT/view?usp=sharing) provided above and download `Nutriscan.zip`.
 
 2. **Configure AWS Credentials**:
     - Locate the `aws_credential.json` file in the Application folder.
