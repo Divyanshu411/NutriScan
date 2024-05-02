@@ -1,4 +1,4 @@
-# NutriScan
+# NutriScan GUI
 
 NutriScan is a Tkinter-based application that leverages AWS Textract's state-of-the-art OCR tool to extract nutritional
 information from food labels and organizes them in a user-friendly table format.
@@ -71,3 +71,62 @@ Check out this tutorial for installation: [NutriScan Tutorial](https://youtu.be/
 5. Use the Export CSV button to save your table as a CSV file.
 6. Use the Append CSV button to add your data to the SQLite database.
 7. Use the Export Append CSV button to export your SQLite database to a CSV file.
+
+---
+
+# NutriScan API
+
+This API is built with Flask and designed to receive images in JPG or PNG format, extract nutritional information from them using OCR (Optical Character Recognition), and return the extracted data in a JSON format.
+
+## Getting Started
+
+To get started with using this API, follow the instructions below.
+
+### Option 1: Local Installation
+
+#### Prerequisites
+
+Ensure you have the following installed on your system:
+
+- Python 3.x
+- Flask
+- Tesseract (OCR tool)
+- AWS_credentials file
+- Other dependencies listed in `requirements.txt`. You can install them using `pip install -r requirements.txt`.
+
+#### Installation Steps
+
+1. Clone this repository to your local machine.
+2. Install the necessary dependencies using pip:
+3. Start the Flask server by executing `flask_app.py`.
+4. Send a POST request to http://localhost:5000/extract endpoint with an image file attached.
+5. The API will process the image, extract nutritional information, and return it in JSON format.
+
+### Option 2: Online API Access
+
+You can also access the API online at http://nutriscan.pythonanywhere.com/extract.
+1. Send a POST request to http://nutriscan.pythonanywhere.com/extract endpoint with an image file attached.
+2. The API will process the image, extract nutritional information, and return it in JSON format.
+
+### Example Request (Applicable for both options)
+
+```http
+POST /extract HTTP/1.1
+Host: [localhost:5000 or nutriscan.pythonanywhere.com]
+Content-Type: multipart/form-data
+Content-Disposition: form-data; name="img_path"; filename="example.jpg"
+```
+
+### Example Response
+```json
+{
+  "data": {
+    "Biotin": 0,
+    "Calcium": 0,
+    "Carbohydrates": 0,
+    "Carotene": 0,
+    "Cholesterol": 0,
+    ...
+  }
+}
+```

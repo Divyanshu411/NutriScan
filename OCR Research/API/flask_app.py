@@ -8,8 +8,8 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
-    return 'Hello World'
+def stat_page():
+    return 'Please send a POST request to /process the image'
 
 
 @app.route('/extract', methods=['POST'])

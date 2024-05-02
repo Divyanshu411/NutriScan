@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d0cac1d3-eef6-4562-88c4-4db3d74cf9f9" name="Changes" comment="Removed unnecessary files">
-      <change beforePath="$PROJECT_DIR$/.idea/OCR Research.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OCR Research.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Media/NutriScan Tutorial.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/NutriScan.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/NutriScan.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/assets/append.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/assets/back.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/assets/delete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/assets/downloads.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/assets/edit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/assets/export.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/NutriScan/aws_credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/nutrition_data.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCR Research/GUI/nutritional_info.csv" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/GUI/nutritional_info.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCR Research/API/flask_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCR Research/API/flask_app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -357,7 +344,8 @@
       <workItem from="1714390749361" duration="19000" />
       <workItem from="1714484387722" duration="2290000" />
       <workItem from="1714492340574" duration="194000" />
-      <workItem from="1714492570396" duration="4657000" />
+      <workItem from="1714492570396" duration="5163000" />
+      <workItem from="1714644233476" duration="2787000" />
     </task>
     <task id="LOCAL-00001" summary="Added dictionaries for variables, extracted data from food labels, and stored in tables">
       <option name="closed" value="true" />
